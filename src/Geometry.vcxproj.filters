@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="float32">
+      <UniqueIdentifier>{35b98a65-0e21-42dd-9998-a73cecc85918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="float64">
+      <UniqueIdentifier>{49acdafd-df4b-4f1d-ae83-c0afdb59079a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="float32\planimetry">
+      <UniqueIdentifier>{68e5ac51-59c6-4398-b0e6-09cd96a19684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="float32\stereometry">
+      <UniqueIdentifier>{6d662847-b36a-42df-bbe7-a887b2caa06c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="geometry.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="utilities.h" />
+    <ClInclude Include="float32\_load.h">
+      <Filter>float32</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\Angle.h">
+      <Filter>float32</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\planimetry\Converter2.h">
+      <Filter>float32\planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\planimetry\Matrix2x2.h">
+      <Filter>float32\planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\planimetry\Vector2.h">
+      <Filter>float32\planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\stereometry\Matrix3x3.h">
+      <Filter>float32\stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\stereometry\Vector3.h">
+      <Filter>float32\stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="float32\stereometry\Converter3.h">
+      <Filter>float32\stereometry</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="float32\Angle.cpp">
+      <Filter>float32</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\planimetry\Converter2.cpp">
+      <Filter>float32\planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\planimetry\Matrix2x2.cpp">
+      <Filter>float32\planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\planimetry\Vector2.cpp">
+      <Filter>float32\planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\stereometry\Matrix3x3.cpp">
+      <Filter>float32\stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\stereometry\Vector3.cpp">
+      <Filter>float32\stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="float32\stereometry\Converter3.cpp">
+      <Filter>float32\stereometry</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
