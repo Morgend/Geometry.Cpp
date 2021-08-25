@@ -147,6 +147,9 @@
     <ClInclude Include="float32\stereometry\Matrix3x3.h" />
     <ClInclude Include="float32\stereometry\Vector3.h" />
     <ClInclude Include="float32\_load.h" />
+    <ClInclude Include="float64\Angle.h" />
+    <ClInclude Include="float64\planimetry\Vector2.h" />
+    <ClInclude Include="float64\_load.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="utilities.h" />
@@ -159,6 +162,8 @@
     <ClCompile Include="float32\stereometry\Converter3.cpp" />
     <ClCompile Include="float32\stereometry\Matrix3x3.cpp" />
     <ClCompile Include="float32\stereometry\Vector3.cpp" />
+    <ClCompile Include="float64\Angle.cpp" />
+    <ClCompile Include="float64\planimetry\Vector2.cpp" />
     <ClCompile Include="utilities.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

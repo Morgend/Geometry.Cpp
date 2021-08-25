@@ -37,15 +37,15 @@ namespace geometry
 
             Matrix3x3 & Matrix3x3::operator*= (const Matrix3x3 & matrix)
             {
-                float a1_1 = this->a1_1 * matrix.a1_1 + this->a1_2 * matrix.a2_1;
-                float a1_2 = this->a1_1 * matrix.a1_2 + this->a1_2 * matrix.a2_2;
-                float a2_1 = this->a2_1 * matrix.a1_1 + this->a2_2 * matrix.a2_1;
-                float a2_2 = this->a2_1 * matrix.a1_2 + this->a2_2 * matrix.a2_2;
+                float r1c1 = this->r1c1 * matrix.r1c1 + this->r1c2 * matrix.r2c1;
+                float r1c2 = this->r1c1 * matrix.r1c2 + this->r1c2 * matrix.r2c2;
+                float r2c1 = this->r2c1 * matrix.r1c1 + this->r2c2 * matrix.r2c1;
+                float r2c2 = this->r2c1 * matrix.r1c2 + this->r2c2 * matrix.r2c2;
 
-                this->a1_1 = a1_1;
-                this->a1_2 = a1_2;
-                this->a2_1 = a2_1;
-                this->a2_2 = a2_2;
+                this->r1c1 = r1c1;
+                this->r1c2 = r1c2;
+                this->r2c1 = r2c1;
+                this->r2c2 = r2c2;
 
                 return (*this);
             }

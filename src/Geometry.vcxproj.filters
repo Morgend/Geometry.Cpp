@@ -13,6 +13,9 @@
     <Filter Include="float32\stereometry">
       <UniqueIdentifier>{6d662847-b36a-42df-bbe7-a887b2caa06c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="float64\planimetry">
+      <UniqueIdentifier>{22bd3902-f7ec-40dd-8688-1b3116494886}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="geometry.h" />
@@ -42,6 +45,15 @@
     <ClInclude Include="float32\stereometry\Converter3.h">
       <Filter>float32\stereometry</Filter>
     </ClInclude>
+    <ClInclude Include="float64\_load.h">
+      <Filter>float64</Filter>
+    </ClInclude>
+    <ClInclude Include="float64\Angle.h">
+      <Filter>float64</Filter>
+    </ClInclude>
+    <ClInclude Include="float64\planimetry\Vector2.h">
+      <Filter>float64\planimetry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utilities.cpp" />
@@ -65,6 +77,12 @@
     </ClCompile>
     <ClCompile Include="float32\stereometry\Converter3.cpp">
       <Filter>float32\stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="float64\Angle.cpp">
+      <Filter>float64</Filter>
+    </ClCompile>
+    <ClCompile Include="float64\planimetry\Vector2.cpp">
+      <Filter>float64\planimetry</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

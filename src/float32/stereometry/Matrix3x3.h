@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef __GEOMETRY_PLANIMETRY__MATRIX2X2FLOAT_H_
-#define __GEOMETRY_PLANIMETRY__MATRIX2X2FLOAT_H_
+#ifndef _GEOMETRY_FLOAT32_PLANIMETRY_MATRIX3X3_H_
+#define _GEOMETRY_FLOAT32_PLANIMETRY_MATRIX3X3_H_
 
 #include "Vector3.h"
 
@@ -30,19 +30,26 @@ namespace geometry
             public:
                 static const int TYPE_ZERO = 0x0;
                 static const int TYPE_IDENTITY = 0x1;
+                static const int CELL_AMOUNT = 9;
                 static const float DEFAULT_CELL_VALUE;
 
-                float a1_1;
-                float a1_2;
-                float a1_3;
+                union {
+                    struct
+                    {
+                        float r1c1;
+                        float r1c2;
+                        float r1c3;
 
-                float a2_1;
-                float a2_2;
-                float a2_3;
+                        float r2c1;
+                        float r2c2;
+                        float r2c3;
 
-                float a3_1;
-                float a3_2;
-                float a3_3;
+                        float r3c1;
+                        float r3c2;
+                        float r3c3;
+                    };
+                    float cells[CELL_AMOUNT];
+                };
 
                 inline Matrix3x3();
                 inline Matrix3x3(const int type);
@@ -81,90 +88,94 @@ namespace geometry
 
             void Matrix3x3::loadIdentity()
             {
-                this->a1_1 = 1.0f;
-                this->a1_2 = 0.0f;
-                this->a1_3 = 0.0f;
+                this->r1c1 = 1.0f;
+                this->r1c2 = 0.0f;
+                this->r1c3 = 0.0f;
 
-                this->a2_1 = 0.0f;
-                this->a2_2 = 1.0f;
-                this->a2_3 = 0.0f;
+                this->r2c1 = 0.0f;
+                this->r2c2 = 1.0f;
+                this->r2c3 = 0.0f;
 
-                this->a3_1 = 0.0f;
-                this->a3_2 = 0.0f;
-                this->a3_3 = 1.0f;
+                this->r3c1 = 0.0f;
+                this->r3c2 = 0.0f;
+                this->r3c3 = 1.0f;
             }
 
             void Matrix3x3::loadZero()
             {
-                this->a1_1 = 0.0f;
-                this->a1_2 = 0.0f;
-                this->a1_3 = 0.0f;
+                this->r1c1 = 0.0f;
+                this->r1c2 = 0.0f;
+                this->r1c3 = 0.0f;
 
-                this->a2_1 = 0.0f;
-                this->a2_2 = 0.0f;
-                this->a2_3 = 0.0f;
+                this->r2c1 = 0.0f;
+                this->r2c2 = 0.0f;
+                this->r2c3 = 0.0f;
 
-                this->a3_1 = 0.0f;
-                this->a3_2 = 0.0f;
-                this->a3_3 = 0.0f;
+                this->r3c1 = 0.0f;
+                this->r3c2 = 0.0f;
+                this->r3c3 = 0.0f;
             }
 
             float Matrix3x3::determinant() const
             {
-                return    this->a1_1 * this->a2_2 * this->a3_3
-                        + this->a1_2 * this->a2_3 * this->a3_1
-                        + this->a2_1 * this->a3_2 * this->a1_3;
+                return    this->r1c1 * this->r2c2 * this->r3c3
+                        + this->r1c2 * this->r2c3 * this->r3c1
+                        + this->r2c1 * this->r3c2 * this->r1c3;
             }
 
             Vector3 Matrix3x3::operator* (const Vector3 & vector) const
             {
                 return Vector3(
-                        this->a1_1 * vector.x + this->a1_2 * vector.y + this->a1_3 * vector.z,
-                        this->a2_1 * vector.x + this->a2_2 * vector.y + this->a2_3 * vector.z,
-                        this->a3_1 * vector.x + this->a3_2 * vector.y + this->a3_3 * vector.z
+                        this->r1c1 * vector.x + this->r1c2 * vector.y + this->r1c3 * vector.z,
+                        this->r2c1 * vector.x + this->r2c2 * vector.y + this->r2c3 * vector.z,
+                        this->r3c1 * vector.x + this->r3c2 * vector.y + this->r3c3 * vector.z
                 );
             }
-/*
+
             Matrix3x3 Matrix3x3::operator* (const float value) const
             {
-                return Matrix3x3(this->a1_1 * value, this->a1_2 * value, this->a2_1 * value, this->a2_2 * value);
+                Matrix3x3 result(*this);
+                result *= value;
+                return result;
             }
 
             Matrix3x3 Matrix3x3::operator/ (const float value) const
             {
-                return Matrix3x3(this->a1_1 / value, this->a1_2 / value, this->a2_1 / value, this->a2_2 / value);
+                Matrix3x3 result(*this);
+                result /= value;
+                return result;
             }
-*/
+
             Matrix3x3 & Matrix3x3::operator*= (const float value)
             {
-                this->a1_1 *= value;
-                this->a1_2 *= value;
-                this->a1_3 *= value;
+                this->r1c1 *= value;
+                this->r1c2 *= value;
+                this->r1c3 *= value;
 
-                this->a2_1 *= value;
-                this->a2_2 *= value;
-                this->a2_3 *= value;
+                this->r2c1 *= value;
+                this->r2c2 *= value;
+                this->r2c3 *= value;
 
-                this->a3_1 *= value;
-                this->a3_2 *= value;
-                this->a3_3 *= value;
+                this->r3c1 *= value;
+                this->r3c2 *= value;
+                this->r3c3 *= value;
 
                 return (*this);
             }
 
             Matrix3x3 & Matrix3x3::operator/= (const float value)
             {
-                this->a1_1 /= value;
-                this->a1_2 /= value;
-                this->a1_3 /= value;
+                this->r1c1 /= value;
+                this->r1c2 /= value;
+                this->r1c3 /= value;
 
-                this->a2_1 /= value;
-                this->a2_2 /= value;
-                this->a2_3 /= value;
+                this->r2c1 /= value;
+                this->r2c2 /= value;
+                this->r2c3 /= value;
 
-                this->a3_1 /= value;
-                this->a3_2 /= value;
-                this->a3_3 /= value;
+                this->r3c1 /= value;
+                this->r3c2 /= value;
+                this->r3c3 /= value;
 
                 return (*this);
             }

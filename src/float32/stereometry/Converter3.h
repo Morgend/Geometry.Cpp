@@ -55,9 +55,9 @@ namespace geometry
             Vector3 Converter3::convert(const Vector3 & vector) const
             {
                 return Vector3(
-                        this->warp.a1_1 * vector.x + this->warp.a1_2 * vector.y + this->warp.a1_3 * vector.z + this->shift.x,
-                        this->warp.a2_1 * vector.x + this->warp.a2_2 * vector.y + this->warp.a2_3 * vector.z + this->shift.y,
-                        this->warp.a3_1 * vector.x + this->warp.a3_2 * vector.y + this->warp.a3_3 * vector.z + this->shift.z
+                        this->warp.r1c1 * vector.x + this->warp.r1c2 * vector.y + this->warp.r1c3 * vector.z + this->shift.x,
+                        this->warp.r2c1 * vector.x + this->warp.r2c2 * vector.y + this->warp.r2c3 * vector.z + this->shift.y,
+                        this->warp.r3c1 * vector.x + this->warp.r3c2 * vector.y + this->warp.r3c3 * vector.z + this->shift.z
                 );
             }
         } /* namespace stereometry */
