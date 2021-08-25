@@ -13,17 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef _GEOMETRY_FLOAT32_LOAD_H_
-#define _GEOMETRY_FLOAT32_LOAD_H_
 
-#include "Angle.h"
+#include "Triangle2.h"
 
-#include "planimetry/Vector2.h"
-#include "planimetry/Triangle2.h"
-#include "planimetry/Matrix2x2.h"
-#include "planimetry/Converter2.h"
-
-#include "stereometry/Matrix3x3.h"
-#include "stereometry/Vector3.h"
-
-#endif /* _GEOMETRY_FLOAT32_LOAD_H_ */
+namespace geometry
+{
+    namespace float32
+    {
+        namespace planimetry
+        {
+            Triangle2::~Triangle2()
+            {
+            }
+        }
+    }
+}
