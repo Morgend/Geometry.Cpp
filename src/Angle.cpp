@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-#include "Vector2.h"
+#include "Angle.h"
 
 namespace geometry
 {
-    namespace float64
-    {
-        namespace planimetry
-        {
-            const double Vector2::DEFAULT_VALUE = 0.0;
+    const double Angle::DEFAULT_VALUE = 0.0;
+    const double Angle::DEGREES_IN_RADIAN = 57.2957795130823209;
+    const double Angle::GRADIANS_IN_RADIAN = 63.6619772367581343;
+    const double Angle::DEGREES_IN_GRADIAN = 0.9;
 
-            Vector2::~Vector2()
-            {
-            }
-        } /* namespace planimetry */
-    } /* namespace float64 */
+    Angle::~Angle()
+    {
+    }
 } /* namespace geometry */

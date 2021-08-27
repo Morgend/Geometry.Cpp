@@ -13,17 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef _GEOMETRY_FLOAT32_LOAD_H_
-#define _GEOMETRY_FLOAT32_LOAD_H_
 
-#include "Angle.h"
+#include <math.h>
 
-#include "planimetry/Vector2.h"
-#include "planimetry/Triangle2.h"
-#include "planimetry/Matrix2x2.h"
-#include "planimetry/Converter2.h"
+#include "Vector2F.h"
 
-#include "stereometry/Matrix3x3.h"
-#include "stereometry/Vector3.h"
+namespace geometry
+{
+    namespace planimetry
+    {
+        const float Vector2F::DEFAULT_VALUE = 0.0f;
 
-#endif /* _GEOMETRY_FLOAT32_LOAD_H_ */
+        Vector2F::~Vector2F()
+        {
+        }
+
+        float Vector2F::module() const
+        {
+            return sqrtf(this->x * this->x + this->y * this->y);
+        }
+    } /* namespace planimetry */
+} /* namespace geometry */

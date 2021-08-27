@@ -13,13 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef _GEOMETRY_FLOAT64_LOAD_H_
-#define _GEOMETRY_FLOAT64_LOAD_H_
 
-#include "Angle.h"
+#include "Vector2.h"
 
-#include "planimetry/Vector2.h"
+namespace geometry
+{
+    namespace planimetry
+    {
+        const double Vector2::DEFAULT_VALUE = 0.0;
 
-
-
-#endif /* _GEOMETRY_FLOAT64_LOAD_H_ */
+        Vector2::~Vector2()
+        {
+        }
+    } /* namespace planimetry */
+} /* namespace geometry */

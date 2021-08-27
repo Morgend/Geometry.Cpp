@@ -18,10 +18,15 @@
 #define _GEOMETRY_H_
 
 #include "types.h"
-#include "utilities.h"
 
-#include "float32/_load.h"
+#include "Angle.h"
+#include "AngleF.h"
 
-//#include "float64/_load.h"
+
+#include "planimetry/Vector2.h"
+#include "planimetry/Vector2F.h"
+#include "planimetry/Triangle2F.h"
+#include "planimetry/Matrix2x2F.h"
+#include "planimetry/Converter2F.h"
 
 #endif

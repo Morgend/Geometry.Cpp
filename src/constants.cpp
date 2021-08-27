@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-#include <math.h>
-
-#include "Vector2.h"
+#include "constants.h"
 
 namespace geometry
 {
-    namespace float32
-    {
-        namespace planimetry
-        {
-            const float Vector2::DEFAULT_VALUE = 0.0f;
+    const float POSITIVE_EPSYLON_FLOAT = 1E-7f;
+    const float NEGATIVE_EPSYLON_FLOAT = -1E-7f;
+    const float POSITIVE_SQUARE_EPSYLON_FLOAT = 1E-14f;
+    const float NEGATIVE_SQUARE_EPSYLON_FLOAT = -1E-14f;
 
-            Vector2::~Vector2()
-            {
-            }
-
-            float Vector2::module() const
-            {
-                return sqrtf(this->x * this->x + this->y * this->y);
-            }
-        } /* namespace planimetry */
-    } /* namespace float32 */
-} /* namespace geometry */
+    const double POSITIVE_EPSYLON_DOUBLE = 1E-15;
+    const double NEGATIVE_EPSYLON_DOUBLE = -1E-15;
+    const double POSITIVE_SQUARE_EPSYLON_DOUBLE = 1E-30;
+    const double NEGATIVE_SQUARE_EPSYLON_DOUBLE = -1E-30;
+}

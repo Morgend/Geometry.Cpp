@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-#include "Triangle2.h"
+#include "Triangle2F.h"
 
 namespace geometry
 {
-    namespace float32
+    namespace planimetry
     {
-        namespace planimetry
+        Triangle2F::~Triangle2F()
         {
-            Triangle2::~Triangle2()
-            {
-            }
         }
     }
 }

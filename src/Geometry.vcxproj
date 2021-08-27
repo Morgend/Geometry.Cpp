@@ -139,32 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="float32\Angle.h" />
-    <ClInclude Include="float32\planimetry\Converter2.h" />
-    <ClInclude Include="float32\planimetry\Matrix2x2.h" />
-    <ClInclude Include="float32\planimetry\Vector2.h" />
-    <ClInclude Include="float32\stereometry\Converter3.h" />
-    <ClInclude Include="float32\stereometry\Matrix3x3.h" />
-    <ClInclude Include="float32\stereometry\Vector3.h" />
-    <ClInclude Include="float32\_load.h" />
-    <ClInclude Include="float64\Angle.h" />
-    <ClInclude Include="float64\planimetry\Vector2.h" />
-    <ClInclude Include="float64\_load.h" />
+    <ClInclude Include="Angle.h" />
+    <ClInclude Include="AngleF.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="planimetry\Converter2F.h" />
+    <ClInclude Include="planimetry\Matrix2x2F.h" />
+    <ClInclude Include="planimetry\Triangle2F.h" />
+    <ClInclude Include="planimetry\Vector2.h" />
+    <ClInclude Include="planimetry\Vector2F.h" />
     <ClInclude Include="types.h" />
-    <ClInclude Include="utilities.h" />
+    <ClInclude Include="constants.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="float32\Angle.cpp" />
-    <ClCompile Include="float32\planimetry\Converter2.cpp" />
-    <ClCompile Include="float32\planimetry\Matrix2x2.cpp" />
-    <ClCompile Include="float32\planimetry\Vector2.cpp" />
-    <ClCompile Include="float32\stereometry\Converter3.cpp" />
-    <ClCompile Include="float32\stereometry\Matrix3x3.cpp" />
-    <ClCompile Include="float32\stereometry\Vector3.cpp" />
-    <ClCompile Include="float64\Angle.cpp" />
-    <ClCompile Include="float64\planimetry\Vector2.cpp" />
-    <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="Angle.cpp" />
+    <ClCompile Include="AngleF.cpp" />
+    <ClCompile Include="planimetry\Converter2F.cpp" />
+    <ClCompile Include="planimetry\Matrix2x2F.cpp" />
+    <ClCompile Include="planimetry\Triangle2F.cpp" />
+    <ClCompile Include="planimetry\Vector2.cpp" />
+    <ClCompile Include="planimetry\Vector2F.cpp" />
+    <ClCompile Include="constants.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

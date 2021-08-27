@@ -14,19 +14,29 @@
  * limitations under the License.
  */
 
-#include "Angle.h"
+#include "Converter2F.h"
+
+#include <math.h>
 
 namespace geometry
 {
-    namespace float64
+    namespace planimetry
     {
-        const double Angle::DEFAULT_VALUE = 0.0;
-        const double Angle::DEGREES_IN_RADIAN = 57.2957795130823209;
-        const double Angle::GRADIANS_IN_RADIAN = 63.6619772367581343;
-        const double Angle::DEGREES_IN_GRADIAN = 0.9;
-
-        Angle::~Angle()
+        Converter2F::~Converter2F()
         {
         }
-    } /* namespace float64 */
+
+        void Converter2F::buildConvesion(const AngleF & turn, const Vector2F & shift)
+        {
+            float cos = cosf(turn.radians());
+            float sin = sinf(turn.radians());
+
+            this->warp.r1c1 = cos;
+            this->warp.r1c2 = -sin;
+            this->warp.r2c1 = sin;
+            this->warp.r2c2 = cos;
+
+            this->shift = shift;
+        }
+    } /* namespace planimetry */
 } /* namespace geometry */

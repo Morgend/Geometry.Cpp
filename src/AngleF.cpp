@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-#include "Angle.h"
-//#include "AngleDouble.h"
+#include "AngleF.h"
+//#include "Angle.h"
 
 namespace geometry
 {
-    namespace float32
-    {
-        const float Angle::DEFAULT_VALUE = 0.0;
-        const float Angle::DEGREES_IN_RADIAN  = 57.295779513f;
-        const float Angle::GRADIANS_IN_RADIAN = 63.661977237f;
-        const float Angle::DEGREES_IN_GRADIAN = 0.9f;
+    const float AngleF::DEFAULT_VALUE = 0.0;
+    const float AngleF::DEGREES_IN_RADIAN  = 57.295779513f;
+    const float AngleF::GRADIANS_IN_RADIAN = 63.661977237f;
+    const float AngleF::DEGREES_IN_GRADIAN = 0.9f;
 
-        Angle::~Angle()
-        {
-        }
-    } /* namespace float32 */
+    AngleF::~AngleF()
+    {
+    }
 } /* namespace geometry */
