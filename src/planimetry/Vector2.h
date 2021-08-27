@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_PLANIMETRY_VECTOR2_F_H_
-#define _GEOMETRY_PLANIMETRY_VECTOR2_F_H_
+#ifndef _GEOMETRY_PLANIMETRY_VECTOR2_H_
+#define _GEOMETRY_PLANIMETRY_VECTOR2_H_
 
 #include <math.h>
+
+#include "../constants.h"
 
 namespace geometry
 {
     namespace planimetry
     {
+        class Vector2F;
+
         typedef class Vector2
         {
         public:
@@ -45,6 +49,8 @@ namespace geometry
 
             inline double module() const;
 
+            Vector2F toFloat() const;
+
             inline Vector2 operator+(const Vector2 & vector) const;
             inline Vector2 operator-(const Vector2 & vector) const;
             inline Vector2 operator*(const double value) const;
@@ -56,7 +62,7 @@ namespace geometry
             inline Vector2 & operator/=(const double value);
 
             inline double operator*(const Vector2 & vector) const;
-        } Vector2Double, Vector2Float64;
+        } Vector2Double;
 
         Vector2::Vector2()
         {
@@ -161,4 +167,4 @@ namespace geometry
     } /* namespace planimetry */
 } /* namespace geometry */
 
-#endif /* _GEOMETRY_PLANIMETRY_VECTOR2_F_H_ */
+#endif /* _GEOMETRY_PLANIMETRY_VECTOR2_H_ */

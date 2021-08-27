@@ -15,7 +15,7 @@
  */
 
 #include "AngleF.h"
-//#include "Angle.h"
+#include "Angle.h"
 
 namespace geometry
 {
@@ -26,5 +26,10 @@ namespace geometry
 
     AngleF::~AngleF()
     {
+    }
+
+    Angle AngleF::toDouble() const
+    {
+        return Angle(this->value);
     }
 } /* namespace geometry */

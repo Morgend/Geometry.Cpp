@@ -15,6 +15,7 @@
  */
 
 #include "Angle.h"
+#include "AngleF.h"
 
 namespace geometry
 {
@@ -26,4 +27,10 @@ namespace geometry
     Angle::~Angle()
     {
     }
+
+    AngleF Angle::toFloat() const
+    {
+        return AngleF((float)this->value);
+    }
+
 } /* namespace geometry */

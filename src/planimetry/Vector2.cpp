@@ -15,6 +15,7 @@
  */
 
 #include "Vector2.h"
+#include "Vector2F.h"
 
 namespace geometry
 {
@@ -24,6 +25,11 @@ namespace geometry
 
         Vector2::~Vector2()
         {
+        }
+
+        Vector2F Vector2::toFloat() const
+        {
+            return Vector2F((float)this->x, (float)this->y);
         }
     } /* namespace planimetry */
 } /* namespace geometry */

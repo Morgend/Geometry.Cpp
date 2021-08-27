@@ -19,6 +19,8 @@
 
 namespace geometry
 {
+    class AngleF;
+
     typedef class Angle
     {
     public:
@@ -40,6 +42,8 @@ namespace geometry
 
         inline double gradians() const;
         inline void setGradians(const double gradians);
+
+        AngleF toFloat() const;
 
         inline Angle & operator+=(const double radians);
         inline Angle & operator+=(const Angle & angle);

@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-#include <math.h>
-
 #include "Vector2F.h"
+#include "Vector2.h"
 
 namespace geometry
 {
@@ -28,9 +27,9 @@ namespace geometry
         {
         }
 
-        float Vector2F::module() const
+        Vector2 Vector2F::toDouble() const
         {
-            return sqrtf(this->x * this->x + this->y * this->y);
+            return Vector2(this->x, this->y);
         }
     } /* namespace planimetry */
 } /* namespace geometry */

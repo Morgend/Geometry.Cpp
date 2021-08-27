@@ -17,12 +17,16 @@
 #ifndef _GEOMETRY_PLANIMETRY_VECTOR2_F_H_
 #define _GEOMETRY_PLANIMETRY_VECTOR2_F_H_
 
+#include <math.h>
+
 #include "../constants.h"
 
 namespace geometry
 {
     namespace planimetry
     {
+        class Vector2;
+
         typedef class Vector2F
         {
         public:
@@ -44,7 +48,9 @@ namespace geometry
             inline float scalar(const float x, const float y) const;
             inline float scalar(const Vector2F & vector) const;
 
-            float module() const;
+            inline float module() const;
+
+            Vector2 toDouble() const;
 
             inline Vector2F operator+(const Vector2F & vector) const;
             inline Vector2F operator-(const Vector2F & vector) const;
@@ -96,6 +102,11 @@ namespace geometry
         float Vector2F::scalar(const Vector2F & vector) const
         {
             return this->x * vector.x + this->y * vector.y;
+        }
+
+        float Vector2F::module() const
+        {
+            return sqrtf(this->x * this->x + this->y * this->y);
         }
 
         Vector2F Vector2F::operator+(const Vector2F & vector) const
