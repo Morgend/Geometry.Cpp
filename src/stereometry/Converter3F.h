@@ -17,51 +17,48 @@
 #ifndef _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 #define _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 
-#include "../Angle.h"
-#include "Matrix3x3.h"
-#include "Vector3.h"
+#include "../AngleF.h"
+#include "Matrix3x3F.h"
+#include "Vector3F.h"
 
 namespace geometry
 {
-    namespace float32
+    namespace stereometry
     {
-        namespace stereometry
+        class Converter3F
         {
-            class Converter3
-            {
-            public:
-                Matrix3x3 warp;
-                Vector3 shift;
+        public:
+            Matrix3x3F warp;
+            Vector3F shift;
 
 
-                inline Converter3();
-                virtual ~Converter3();
+            inline Converter3F();
+            virtual ~Converter3F();
 
-                inline void loadIdentity();
+            inline void loadIdentity();
 
-                inline Vector3 convert(const Vector3 & vector) const;
-            };
+            inline Vector3F convert(const Vector3F & vector) const;
+        };
 
-            Converter3::Converter3()
-            {
-            }
+        Converter3F::Converter3F()
+        {
+        }
 
-            void Converter3::loadIdentity()
-            {
-                this->warp.loadIdentity();
-                this->shift.setToZero();
-            }
+        void Converter3F::loadIdentity()
+        {
+            this->warp.loadIdentity();
+            this->shift.setToZero();
+        }
 
-            Vector3 Converter3::convert(const Vector3 & vector) const
-            {
-                return Vector3(
-                        this->warp.r1c1 * vector.x + this->warp.r1c2 * vector.y + this->warp.r1c3 * vector.z + this->shift.x,
-                        this->warp.r2c1 * vector.x + this->warp.r2c2 * vector.y + this->warp.r2c3 * vector.z + this->shift.y,
-                        this->warp.r3c1 * vector.x + this->warp.r3c2 * vector.y + this->warp.r3c3 * vector.z + this->shift.z
-                );
-            }
-        } /* namespace stereometry */
-    } /* namespace float32 */
+        Vector3F Converter3F::convert(const Vector3F & vector) const
+        {
+            return Vector3F(
+                    this->warp.r1c1 * vector.x + this->warp.r1c2 * vector.y + this->warp.r1c3 * vector.z + this->shift.x,
+                    this->warp.r2c1 * vector.x + this->warp.r2c2 * vector.y + this->warp.r2c3 * vector.z + this->shift.y,
+                    this->warp.r3c1 * vector.x + this->warp.r3c2 * vector.y + this->warp.r3c3 * vector.z + this->shift.z
+            );
+        }
+    } /* namespace stereometry */
 } /* namespace geometry */
 
 #endif /* _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_ */

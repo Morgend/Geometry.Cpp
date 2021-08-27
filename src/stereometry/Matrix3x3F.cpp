@@ -14,41 +14,38 @@
  * limitations under the License.
  */
 
-#include "Matrix3x3.h"
+#include "Matrix3x3F.h"
 
 namespace geometry
 {
-    namespace float32
+    namespace stereometry
     {
-        namespace stereometry
+        const float Matrix3x3F::DEFAULT_CELL_VALUE = 0.0f;
+
+        Matrix3x3F::~Matrix3x3F()
         {
-            const float Matrix3x3::DEFAULT_CELL_VALUE = 0.0f;
+        }
 
-            Matrix3x3::~Matrix3x3()
-            {
-            }
+        Matrix3x3F Matrix3x3F::operator* (const Matrix3x3F & matrix) const
+        {
+            Matrix3x3F result;
 
-            Matrix3x3 Matrix3x3::operator* (const Matrix3x3 & matrix) const
-            {
-                Matrix3x3 result;
+            return result;
+        }
 
-                return result;
-            }
+        Matrix3x3F & Matrix3x3F::operator*= (const Matrix3x3F & matrix)
+        {
+            float r1c1 = this->r1c1 * matrix.r1c1 + this->r1c2 * matrix.r2c1;
+            float r1c2 = this->r1c1 * matrix.r1c2 + this->r1c2 * matrix.r2c2;
+            float r2c1 = this->r2c1 * matrix.r1c1 + this->r2c2 * matrix.r2c1;
+            float r2c2 = this->r2c1 * matrix.r1c2 + this->r2c2 * matrix.r2c2;
 
-            Matrix3x3 & Matrix3x3::operator*= (const Matrix3x3 & matrix)
-            {
-                float r1c1 = this->r1c1 * matrix.r1c1 + this->r1c2 * matrix.r2c1;
-                float r1c2 = this->r1c1 * matrix.r1c2 + this->r1c2 * matrix.r2c2;
-                float r2c1 = this->r2c1 * matrix.r1c1 + this->r2c2 * matrix.r2c1;
-                float r2c2 = this->r2c1 * matrix.r1c2 + this->r2c2 * matrix.r2c2;
+            this->r1c1 = r1c1;
+            this->r1c2 = r1c2;
+            this->r2c1 = r2c1;
+            this->r2c2 = r2c2;
 
-                this->r1c1 = r1c1;
-                this->r1c2 = r1c2;
-                this->r2c1 = r2c1;
-                this->r2c2 = r2c2;
-
-                return (*this);
-            }
-        } /* namespace stereometry */
-    } /* namespace float32 */
+            return (*this);
+        }
+    } /* namespace stereometry */
 } /* namespace geometry */

@@ -14,176 +14,173 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_FLOAT32_STEREOMETRY_VECTOR2_H_
-#define _GEOMETRY_FLOAT32_STEREOMETRY_VECTOR2_H_
+#ifndef _GEOMETRY_STEREOMETRY_VECTOR3_F_H_
+#define _GEOMETRY_STEREOMETRY_VECTOR3_F_H_
 
-#include "../../utilities.h"
+#include "../constants.h"
 
 #include <math.h>
 
 namespace geometry
 {
-    namespace float32
+    namespace stereometry
     {
-        namespace stereometry
+        typedef class Vector3F
         {
-            typedef class Vector3
-            {
-            public:
-                static const float DEFAULT_VALUE;
+        public:
+            static const float DEFAULT_VALUE;
 
-                float x;
-                float y;
-                float z;
+            float x;
+            float y;
+            float z;
 
-                inline Vector3();
-                inline Vector3(const float x, const float y, const float z);
+            inline Vector3F();
+            inline Vector3F(const float x, const float y, const float z);
 
-                virtual ~Vector3();
+            virtual ~Vector3F();
 
-                inline bool isZero() const;
+            inline bool isZero() const;
 
-                inline void setToZero();
-                inline void setValues(const float x, const float y, const float z);
+            inline void setToZero();
+            inline void setValues(const float x, const float y, const float z);
 
-                inline float scalar(const float x, const float y, const float z) const;
-                inline float scalar(const Vector3 & vector) const;
+            inline float scalar(const float x, const float y, const float z) const;
+            inline float scalar(const Vector3F & vector) const;
 
-                inline float module() const;
+            inline float module() const;
 
-                inline Vector3 operator+(const Vector3 & vector) const;
-                inline Vector3 operator-(const Vector3 & vector) const;
-                inline Vector3 operator*(const float value) const;
-                inline Vector3 operator/(const float value) const;
+            inline Vector3F operator+(const Vector3F & vector) const;
+            inline Vector3F operator-(const Vector3F & vector) const;
+            inline Vector3F operator*(const float value) const;
+            inline Vector3F operator/(const float value) const;
 
-                inline Vector3 & operator+=(const Vector3 & vector);
-                inline Vector3 & operator-=(const Vector3 & vector);
-                inline Vector3 & operator*=(const float value);
-                inline Vector3 & operator/=(const float value);
+            inline Vector3F & operator+=(const Vector3F & vector);
+            inline Vector3F & operator-=(const Vector3F & vector);
+            inline Vector3F & operator*=(const float value);
+            inline Vector3F & operator/=(const float value);
 
-                inline float operator*(const Vector3 & vector) const;
-            } Vector3Float, Vector3Float32;
+            inline float operator*(const Vector3F & vector) const;
+        } Vector3FFloat, Vector3FFloat32;
 
-            Vector3::Vector3()
-            {
-                this->x = Vector3::DEFAULT_VALUE;
-                this->y = Vector3::DEFAULT_VALUE;
-                this->z = Vector3::DEFAULT_VALUE;
-            }
+        Vector3F::Vector3F()
+        {
+            this->x = Vector3F::DEFAULT_VALUE;
+            this->y = Vector3F::DEFAULT_VALUE;
+            this->z = Vector3F::DEFAULT_VALUE;
+        }
 
-            Vector3::Vector3(const float x, const float y, const float z)
-            {
-                this->x = x;
-                this->y = y;
-                this->z = z;
-            }
+        Vector3F::Vector3F(const float x, const float y, const float z)
+        {
+            this->x = x;
+            this->y = y;
+            this->z = z;
+        }
 
-            bool Vector3::isZero() const
-            {
-                return this->x * this->x + this->y * this->y + this->z * this->z <= POSITIVE_SQUARE_EPSYLON_FLOAT;
-            }
+        bool Vector3F::isZero() const
+        {
+            return this->x * this->x + this->y * this->y + this->z * this->z <= POSITIVE_SQUARE_EPSYLON_FLOAT;
+        }
 
-            void Vector3::setToZero()
-            {
-                this->x = Vector3::DEFAULT_VALUE;
-                this->y = Vector3::DEFAULT_VALUE;
-                this->z = Vector3::DEFAULT_VALUE;
-            }
+        void Vector3F::setToZero()
+        {
+            this->x = Vector3F::DEFAULT_VALUE;
+            this->y = Vector3F::DEFAULT_VALUE;
+            this->z = Vector3F::DEFAULT_VALUE;
+        }
 
-            void Vector3::setValues(const float x, const float y, const float z)
-            {
-                this->x = x;
-                this->y = y;
-                this->z = z;
-            }
+        void Vector3F::setValues(const float x, const float y, const float z)
+        {
+            this->x = x;
+            this->y = y;
+            this->z = z;
+        }
 
-            float Vector3::scalar(const float x, const float y, const float z) const
-            {
-                return this->x * x + this->y * y + this->z * z;
-            }
+        float Vector3F::scalar(const float x, const float y, const float z) const
+        {
+            return this->x * x + this->y * y + this->z * z;
+        }
 
-            float Vector3::scalar(const Vector3 & vector) const
-            {
-                return this->x * vector.x + this->y * vector.y + this->z * vector.z;
-            }
+        float Vector3F::scalar(const Vector3F & vector) const
+        {
+            return this->x * vector.x + this->y * vector.y + this->z * vector.z;
+        }
 
-            float Vector3::module() const
-            {
-                return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
-            }
+        float Vector3F::module() const
+        {
+            return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+        }
 
-            Vector3 Vector3::operator+(const Vector3 & vector) const
-            {
-                return Vector3(this->x + vector.x, this->y + vector.y, this->z + vector.z);
-            }
+        Vector3F Vector3F::operator+(const Vector3F & vector) const
+        {
+            return Vector3F(this->x + vector.x, this->y + vector.y, this->z + vector.z);
+        }
 
-            Vector3 Vector3::operator-(const Vector3 & vector) const
-            {
-                return Vector3(this->x - vector.x, this->y - vector.y, this->z - vector.z);
-            }
+        Vector3F Vector3F::operator-(const Vector3F & vector) const
+        {
+            return Vector3F(this->x - vector.x, this->y - vector.y, this->z - vector.z);
+        }
 
-            Vector3 Vector3::operator*(const float value) const
-            {
-                return Vector3(this->x * value, this->y * value, this->z * value);
-            }
+        Vector3F Vector3F::operator*(const float value) const
+        {
+            return Vector3F(this->x * value, this->y * value, this->z * value);
+        }
 
-            Vector3 Vector3::operator/(const float value) const
-            {
-                return Vector3(this->x / value, this->y / value, this->z / value);
-            }
+        Vector3F Vector3F::operator/(const float value) const
+        {
+            return Vector3F(this->x / value, this->y / value, this->z / value);
+        }
 
-            Vector3 & Vector3::operator+=(const Vector3 & vector)
-            {
-                this->x += vector.x;
-                this->y += vector.y;
-                this->z += vector.z;
+        Vector3F & Vector3F::operator+=(const Vector3F & vector)
+        {
+            this->x += vector.x;
+            this->y += vector.y;
+            this->z += vector.z;
 
-                return (*this);
-            }
+            return (*this);
+        }
 
-            Vector3 & Vector3::operator-=(const Vector3 & vector)
-            {
-                this->x -= vector.x;
-                this->y -= vector.y;
-                this->z -= vector.z;
+        Vector3F & Vector3F::operator-=(const Vector3F & vector)
+        {
+            this->x -= vector.x;
+            this->y -= vector.y;
+            this->z -= vector.z;
 
-                return (*this);
-            }
+            return (*this);
+        }
 
-            Vector3 & Vector3::operator*=(const float value)
-            {
-                this->x *= value;
-                this->y *= value;
-                this->z *= value;
+        Vector3F & Vector3F::operator*=(const float value)
+        {
+            this->x *= value;
+            this->y *= value;
+            this->z *= value;
 
-                return (*this);
-            }
+            return (*this);
+        }
 
-            Vector3 & Vector3::operator/=(const float value)
-            {
-                this->x /= value;
-                this->y /= value;
-                this->z /= value;
+        Vector3F & Vector3F::operator/=(const float value)
+        {
+            this->x /= value;
+            this->y /= value;
+            this->z /= value;
 
-                return (*this);
-            }
+            return (*this);
+        }
 
-            float Vector3::operator*(const Vector3 & vector) const
-            {
-                return this->x * vector.x + this->y * vector.y;
-            }
+        float Vector3F::operator*(const Vector3F & vector) const
+        {
+            return this->x * vector.x + this->y * vector.y;
+        }
 
-            inline Vector3 operator*(const float value, const Vector3 & vector)
-            {
-                return Vector3(vector.x * value, vector.y * value, vector.z * value);
-            }
+        inline Vector3F operator*(const float value, const Vector3F & vector)
+        {
+            return Vector3F(vector.x * value, vector.y * value, vector.z * value);
+        }
 
-            inline Vector3 operator*(const double value, const Vector3 & vector)
-            {
-                return Vector3((float)(vector.x * value), (float)(vector.y * value), (float)(vector.z * value));
-            }
-        } /* namespace stereometry */
-    } /* namespace float32 */
+        inline Vector3F operator*(const double value, const Vector3F & vector)
+        {
+            return Vector3F((float)(vector.x * value), (float)(vector.y * value), (float)(vector.z * value));
+        }
+    } /* namespace stereometry */
 } /* namespace geometry */
 
-#endif /* _GEOMETRY_FLOAT32_STEREOMETRY_VECTOR2_H_ */
+#endif /* _GEOMETRY_STEREOMETRY_VECTOR3_F_H_ */

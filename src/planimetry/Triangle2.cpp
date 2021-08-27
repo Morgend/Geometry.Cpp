@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-#include "Converter3F.h"
-
-#include <math.h>
+#include "Triangle2F.h"
 
 namespace geometry
 {
-    namespace stereometry
+    namespace planimetry
     {
-        Converter3F::~Converter3F()
+        Triangle2F::~Triangle2F()
         {
         }
-    } /* namespace stereometry */
-} /* namespace geometry */
+    }
+}

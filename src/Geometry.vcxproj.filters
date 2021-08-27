@@ -21,6 +21,15 @@
       <Filter>planimetry</Filter>
     </ClInclude>
     <ClInclude Include="constants.h" />
+    <ClInclude Include="stereometry\Converter3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Matrix3x3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Vector3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
@@ -41,10 +50,22 @@
       <Filter>planimetry</Filter>
     </ClCompile>
     <ClCompile Include="constants.cpp" />
+    <ClCompile Include="stereometry\Converter3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Matrix3x3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Vector3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="planimetry">
       <UniqueIdentifier>{bb1e46b5-ebb1-4148-92af-51a3ca3b38f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stereometry">
+      <UniqueIdentifier>{1e38798a-2322-47b0-8127-6aa1dd20ab9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

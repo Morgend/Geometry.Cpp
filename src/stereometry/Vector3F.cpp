@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-#include "Vector3.h"
+#include "Vector3F.h"
 
 namespace geometry
 {
-    namespace float32
+    namespace stereometry
     {
-        namespace stereometry
-        {
-            const float Vector3::DEFAULT_VALUE = 0.0f;
+        const float Vector3F::DEFAULT_VALUE = 0.0f;
 
-            Vector3::~Vector3()
-            {
-            }
-        } /* namespace stereometry */
-    } /* namespace float32 */
+        Vector3F::~Vector3F()
+        {
+        }
+    } /* namespace stereometry */
 } /* namespace geometry */
