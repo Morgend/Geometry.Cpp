@@ -49,6 +49,8 @@ namespace geometry
 
             inline float module() const;
 
+            inline Vector3F vectorMultiply(const Vector3F& vector) const;
+
             inline Vector3F operator+(const Vector3F & vector) const;
             inline Vector3F operator-(const Vector3F & vector) const;
             inline Vector3F operator*(const float value) const;
@@ -57,6 +59,7 @@ namespace geometry
             inline Vector3F & operator+=(const Vector3F & vector);
             inline Vector3F & operator-=(const Vector3F & vector);
             inline Vector3F & operator*=(const float value);
+            inline Vector3F & operator*=(const Vector3F& vector);
             inline Vector3F & operator/=(const float value);
 
             inline float operator*(const Vector3F & vector) const;
@@ -110,6 +113,15 @@ namespace geometry
             return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
         }
 
+        inline Vector3F Vector3F::vectorMultiply(const Vector3F& vector) const
+        {
+            return Vector3F(
+                this->y * vector.z - this->z * vector.y,
+                this->x * vector.z - this->z * vector.x,
+                this->x * vector.y - this->y * vector.x
+            );
+        }
+
         Vector3F Vector3F::operator+(const Vector3F & vector) const
         {
             return Vector3F(this->x + vector.x, this->y + vector.y, this->z + vector.z);
@@ -153,6 +165,19 @@ namespace geometry
             this->x *= value;
             this->y *= value;
             this->z *= value;
+
+            return (*this);
+        }
+
+        Vector3F & Vector3F::operator*=(const Vector3F& vector)
+        {
+            float x = this->y * vector.z - this->z * vector.y;
+            float y = this->x * vector.z - this->z * vector.x;
+            float z = this->x * vector.y - this->y * vector.x;
+
+            this->x = x;
+            this->y = y;
+            this->z = z;
 
             return (*this);
         }

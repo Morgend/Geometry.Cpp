@@ -43,6 +43,8 @@ namespace geometry
             inline Vector3 vectorAC() const;
             inline Vector3 vectorCA() const;
 
+            inline double square() const;
+
             inline Vector3 getMedianCentre() const;
 
             Triangle3F toFloat() const;
@@ -87,6 +89,11 @@ namespace geometry
         Vector3 Triangle3::vectorCA() const
         {
             return A - C;
+        }
+
+        double Triangle3::square() const
+        {
+            return 0.5 * ((B - A).vectorMultiply(C - A)).module();
         }
 
         Vector3 Triangle3::getMedianCentre() const

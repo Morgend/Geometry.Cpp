@@ -49,6 +49,8 @@ namespace geometry
 
             inline double module() const;
 
+            inline Vector3 vectorMultiply(const Vector3& vector) const;
+
             inline Vector3 operator+(const Vector3 & vector) const;
             inline Vector3 operator-(const Vector3 & vector) const;
             inline Vector3 operator*(const double value) const;
@@ -57,6 +59,7 @@ namespace geometry
             inline Vector3 & operator+=(const Vector3 & vector);
             inline Vector3 & operator-=(const Vector3 & vector);
             inline Vector3 & operator*=(const double value);
+            inline Vector3 & operator*=(const Vector3 & vector);
             inline Vector3 & operator/=(const double value);
 
             inline double operator*(const Vector3 & vector) const;
@@ -110,6 +113,15 @@ namespace geometry
             return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
         }
 
+        inline Vector3 Vector3::vectorMultiply(const Vector3 & vector) const
+        {
+            return Vector3(
+                this->y * vector.z - this->z * vector.y,
+                this->x * vector.z - this->z * vector.x,
+                this->x * vector.y - this->y * vector.x
+            );
+        }
+
         Vector3 Vector3::operator+(const Vector3 & vector) const
         {
             return Vector3(this->x + vector.x, this->y + vector.y, this->z + vector.z);
@@ -153,6 +165,19 @@ namespace geometry
             this->x *= value;
             this->y *= value;
             this->z *= value;
+
+            return (*this);
+        }
+
+        Vector3 & Vector3::operator*=(const Vector3 & vector)
+        {
+            double x = this->y * vector.z - this->z * vector.y;
+            double y = this->x * vector.z - this->z * vector.x;
+            double z = this->x * vector.y - this->y * vector.x;
+
+            this->x = x;
+            this->y = y;
+            this->z = z;
 
             return (*this);
         }
