@@ -30,6 +30,18 @@
     <ClInclude Include="stereometry\Vector3F.h">
       <Filter>stereometry</Filter>
     </ClInclude>
+    <ClInclude Include="planimetry\Triangle2.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Triangle3.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Triangle3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Vector3.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
@@ -57,6 +69,18 @@
       <Filter>stereometry</Filter>
     </ClCompile>
     <ClCompile Include="stereometry\Vector3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="planimetry\Triangle2.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Triangle3.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Triangle3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Vector3.cpp">
       <Filter>stereometry</Filter>
     </ClCompile>
   </ItemGroup>

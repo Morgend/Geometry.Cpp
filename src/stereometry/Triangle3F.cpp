@@ -14,29 +14,32 @@
  * limitations under the License.
  */
 
-#include "Triangle2F.h"
-#include "Triangle2.h"
+#include "Triangle3F.h"
+#include "Triangle3.h"
 
 namespace geometry
 {
-    namespace planimetry
+    namespace stereometry
     {
-        Triangle2F::~Triangle2F()
+        Triangle3F::~Triangle3F()
         {
         }
 
-        Triangle2 Triangle2F::toDouble() const
+        Triangle3 Triangle3F::toDouble() const
         {
-            Triangle2 result;
+            Triangle3 result;
 
             result.A.x = this->A.x;
             result.A.y = this->A.y;
+            result.A.z = this->A.z;
 
             result.B.x = this->B.x;
             result.B.y = this->B.y;
+            result.B.z = this->B.z;
 
             result.C.x = this->C.x;
             result.C.y = this->C.y;
+            result.C.z = this->C.z;
 
             return result;
         }

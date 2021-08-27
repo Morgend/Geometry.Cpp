@@ -14,31 +14,16 @@
  * limitations under the License.
  */
 
-#include "Triangle2F.h"
-#include "Triangle2.h"
+#include "Vector3.h"
 
 namespace geometry
 {
-    namespace planimetry
+    namespace stereometry
     {
-        Triangle2F::~Triangle2F()
+        const double Vector3::DEFAULT_VALUE = 0.0;
+
+        Vector3::~Vector3()
         {
         }
-
-        Triangle2 Triangle2F::toDouble() const
-        {
-            Triangle2 result;
-
-            result.A.x = this->A.x;
-            result.A.y = this->A.y;
-
-            result.B.x = this->B.x;
-            result.B.y = this->B.y;
-
-            result.C.x = this->C.x;
-            result.C.y = this->C.y;
-
-            return result;
-        }
-    }
-}
+    } /* namespace stereometry */
+} /* namespace geometry */

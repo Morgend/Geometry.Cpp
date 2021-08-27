@@ -144,11 +144,15 @@
     <ClInclude Include="geometry.h" />
     <ClInclude Include="planimetry\Converter2F.h" />
     <ClInclude Include="planimetry\Matrix2x2F.h" />
+    <ClInclude Include="planimetry\Triangle2.h" />
     <ClInclude Include="planimetry\Triangle2F.h" />
     <ClInclude Include="planimetry\Vector2.h" />
     <ClInclude Include="planimetry\Vector2F.h" />
     <ClInclude Include="stereometry\Converter3F.h" />
     <ClInclude Include="stereometry\Matrix3x3F.h" />
+    <ClInclude Include="stereometry\Triangle3.h" />
+    <ClInclude Include="stereometry\Triangle3F.h" />
+    <ClInclude Include="stereometry\Vector3.h" />
     <ClInclude Include="stereometry\Vector3F.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="constants.h" />
@@ -158,12 +162,16 @@
     <ClCompile Include="AngleF.cpp" />
     <ClCompile Include="planimetry\Converter2F.cpp" />
     <ClCompile Include="planimetry\Matrix2x2F.cpp" />
+    <ClCompile Include="planimetry\Triangle2.cpp" />
     <ClCompile Include="planimetry\Triangle2F.cpp" />
     <ClCompile Include="planimetry\Vector2.cpp" />
     <ClCompile Include="planimetry\Vector2F.cpp" />
     <ClCompile Include="constants.cpp" />
     <ClCompile Include="stereometry\Converter3F.cpp" />
     <ClCompile Include="stereometry\Matrix3x3F.cpp" />
+    <ClCompile Include="stereometry\Triangle3.cpp" />
+    <ClCompile Include="stereometry\Triangle3F.cpp" />
+    <ClCompile Include="stereometry\Vector3.cpp" />
     <ClCompile Include="stereometry\Vector3F.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

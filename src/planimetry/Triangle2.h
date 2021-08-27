@@ -14,91 +14,95 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_
-#define _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_
+#ifndef _GEOMETRY_PLANIMETRY_TRIANGLE2_H_
+#define _GEOMETRY_PLANIMETRY_TRIANGLE2_H_
 
-#include "Vector2F.h"
+#include "Vector2.h"
 
 namespace geometry
 {
     namespace planimetry
     {
-        class Triangle2F
+        class Triangle2F;
+
+        class Triangle2
         {
         public:
-            Vector2F A;
-            Vector2F B;
-            Vector2F C;
+            Vector2 A;
+            Vector2 B;
+            Vector2 C;
 
-            inline Triangle2F();
-            inline Triangle2F(const Vector2F& A, const Vector2F& B, const Vector2F& C);
-            virtual ~Triangle2F();
+            inline Triangle2();
+            inline Triangle2(const Vector2& A, const Vector2& B, const Vector2& C);
+            virtual ~Triangle2();
 
-            inline Vector2F vectorAB() const;
-            inline Vector2F vectorBA() const;
-            inline Vector2F vectorBC() const;
-            inline Vector2F vectorCB() const;
-            inline Vector2F vectorAC() const;
-            inline Vector2F vectorCA() const;
+            inline Vector2 vectorAB() const;
+            inline Vector2 vectorBA() const;
+            inline Vector2 vectorBC() const;
+            inline Vector2 vectorCB() const;
+            inline Vector2 vectorAC() const;
+            inline Vector2 vectorCA() const;
 
-            inline float square() const;
+            inline double square() const;
 
-            inline Vector2F getMedianCentre() const;
+            inline Vector2 getMedianCentre() const;
+
+            Triangle2F toFloat() const;
         };
 
-        Triangle2F::Triangle2F()
+        Triangle2::Triangle2()
         {
         }
 
-        Triangle2F::Triangle2F(const Vector2F& A, const Vector2F& B, const Vector2F& C)
+        Triangle2::Triangle2(const Vector2& A, const Vector2& B, const Vector2& C)
         {
             this->A = A;
             this->B = B;
             this->C = C;
         }
 
-        Vector2F Triangle2F::vectorAB() const
+        Vector2 Triangle2::vectorAB() const
         {
             return B - A;
         }
 
-        Vector2F Triangle2F::vectorBA() const
+        Vector2 Triangle2::vectorBA() const
         {
             return A - B;
         }
 
-        Vector2F Triangle2F::vectorBC() const
+        Vector2 Triangle2::vectorBC() const
         {
             return C - B;
         }
 
-        Vector2F Triangle2F::vectorCB() const
+        Vector2 Triangle2::vectorCB() const
         {
             return B - C;
         }
 
-        Vector2F Triangle2F::vectorAC() const
+        Vector2 Triangle2::vectorAC() const
         {
             return C - A;
         }
 
-        Vector2F Triangle2F::vectorCA() const
+        Vector2 Triangle2::vectorCA() const
         {
             return A - C;
         }
 
-        float Triangle2F::square() const
+        double Triangle2::square() const
         {
-            float vectorMultiplication = (B.x - A.x) * (C.y - A.y) - (B.y - A.y) * (C.x - A.x);
+            double vectorMultiplication = (B.x - A.x) * (C.y - A.y) - (B.y - A.y) * (C.x - A.x);
                 
-            return 0.5f * (vectorMultiplication >= 0 ? vectorMultiplication : -vectorMultiplication);
+            return 0.5 * (vectorMultiplication >= 0 ? vectorMultiplication : -vectorMultiplication);
         }
 
-        Vector2F Triangle2F::getMedianCentre() const
+        Vector2 Triangle2::getMedianCentre() const
         {
-            return Vector2F((A.x + B.x + C.x) / 3.0f, (A.y + B.y + C.y) / 3.0f);
+            return Vector2((A.x + B.x + C.x) / 3.0f, (A.y + B.y + C.y) / 3.0f);
         }
     } /* namespace planimetry */
 } /* namespace geometry */
 
-#endif /* _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_ */
+#endif /* _GEOMETRY_PLANIMETRY_TRIANGLE2_H_ */

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_
-#define _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_
+#ifndef _GEOMETRY_PLANIMETRY_TRIANGLE2_F_H_
+#define _GEOMETRY_PLANIMETRY_TRIANGLE2_F_H_
 
 #include "Vector2F.h"
 
@@ -23,6 +23,8 @@ namespace geometry
 {
     namespace planimetry
     {
+        class Triangle2;
+
         class Triangle2F
         {
         public:
@@ -44,6 +46,8 @@ namespace geometry
             inline float square() const;
 
             inline Vector2F getMedianCentre() const;
+
+            Triangle2 toDouble() const;
         };
 
         Triangle2F::Triangle2F()
@@ -101,4 +105,4 @@ namespace geometry
     } /* namespace planimetry */
 } /* namespace geometry */
 
-#endif /* _GEOMETRY_PLANIMETRY_TRIANGLE_F_H_ */
+#endif /* _GEOMETRY_PLANIMETRY_TRIANGLE2_F_H_ */
