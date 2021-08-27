@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_UTILITIES_H_
-#define _GEOMETRY_UTILITIES_H_
+#ifndef _GEOMETRY_CONSTANTS_H_
+#define _GEOMETRY_CONSTANTS_H_
 
 namespace geometry
 {
