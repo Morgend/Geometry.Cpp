@@ -14,29 +14,15 @@
  * limitations under the License.
  */
 
-#include "Vector3F.h"
-#include "Vector3.h"
+
+#include "Line3.h"
 
 namespace geometry
 {
     namespace stereometry
     {
-        const float Vector3F::DEFAULT_VALUE = 0.0f;
-
-        Vector3F::Vector3F(const Vector3 & vector)
-        {
-            this->x = (float)vector.x;
-            this->y = (float)vector.y;
-            this->z = (float)vector.z;
-        }
-
-        Vector3F::~Vector3F()
+        Line3::~Line3()
         {
         }
-
-        Vector3 Vector3F::toDouble() const
-        {
-            return Vector3(this->x, this->y, this->z);
-        }
-    } /* namespace stereometry */
-} /* namespace geometry */
+    }
+}

@@ -25,6 +25,10 @@
 
 #include "planimetry/Vector2.h"
 #include "planimetry/Vector2F.h"
+#include "planimetry/Ray2.h"
+#include "planimetry/Ray2F.h"
+#include "planimetry/Line2.h"
+#include "planimetry/Line2F.h"
 #include "planimetry/Triangle2F.h"
 #include "planimetry/Matrix2x2F.h"
 #include "planimetry/Converter2F.h"

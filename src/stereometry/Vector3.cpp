@@ -15,6 +15,7 @@
  */
 
 #include "Vector3.h"
+#include "Vector3F.h"
 
 namespace geometry
 {
@@ -22,8 +23,27 @@ namespace geometry
     {
         const double Vector3::DEFAULT_VALUE = 0.0;
 
+        Vector3::Vector3(const Vector3F& vector)
+        {
+            this->x = vector.x;
+            this->y = vector.y;
+            this->z = vector.z;
+        }
+
         Vector3::~Vector3()
         {
+        }
+
+        void Vector3::setValues(const Vector3F& vector)
+        {
+            this->x = vector.x;
+            this->y = vector.y;
+            this->z = vector.z;
+        }
+
+        Vector3F Vector3::toFloat() const
+        {
+            return Vector3F((float)this->x, (float)this->y, (float)this->z);
         }
     } /* namespace stereometry */
 } /* namespace geometry */

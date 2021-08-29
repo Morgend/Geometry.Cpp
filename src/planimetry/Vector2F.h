@@ -36,6 +36,7 @@ namespace geometry
             float y;
 
             inline Vector2F();
+            Vector2F(const Vector2 & vector);
             inline Vector2F(const float x, const float y);
 
             virtual ~Vector2F();
@@ -49,6 +50,8 @@ namespace geometry
             inline float scalar(const Vector2F & vector) const;
 
             inline float module() const;
+
+            inline bool normalize();
 
             Vector2 toDouble() const;
 
@@ -107,6 +110,24 @@ namespace geometry
         float Vector2F::module() const
         {
             return sqrtf(this->x * this->x + this->y * this->y);
+        }
+
+        bool Vector2F::normalize()
+        {
+            float sqareModule = this->x * this->x + this->y * this->y;
+
+            if (sqareModule <= POSITIVE_SQUARE_EPSYLON_DOUBLE)
+            {
+                this->setToZero();
+                return false;
+            }
+
+            float module = sqrtf(sqareModule);
+
+            this->x /= module;
+            this->y /= module;
+
+            return true;
         }
 
         Vector2F Vector2F::operator+(const Vector2F & vector) const

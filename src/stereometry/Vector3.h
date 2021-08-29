@@ -25,6 +25,8 @@ namespace geometry
 {
     namespace stereometry
     {
+        class Vector3F;
+
         typedef class Vector3
         {
         public:
@@ -35,19 +37,27 @@ namespace geometry
             double z;
 
             inline Vector3();
+            Vector3(const Vector3F& vector);
             inline Vector3(const double x, const double y, const double z);
 
             virtual ~Vector3();
 
+            inline bool isUnit() const;
             inline bool isZero() const;
 
             inline void setToZero();
             inline void setValues(const double x, const double y, const double z);
+            inline void setValues(const Vector3& vector);
+            void setValues(const Vector3F& vector);
 
             inline double scalar(const double x, const double y, const double z) const;
             inline double scalar(const Vector3 & vector) const;
 
             inline double module() const;
+
+            inline bool normalize();
+
+            Vector3F toFloat() const;
 
             inline Vector3 vectorMultiply(const Vector3& vector) const;
 
@@ -79,6 +89,13 @@ namespace geometry
             this->z = z;
         }
 
+        bool Vector3::isUnit() const
+        {
+            double difference = this->x * this->x + this->y * this->y + this->z * this->z - 1.0;
+
+            return NEGATIVE_EPSYLON_DOUBLE <= difference && difference <= POSITIVE_EPSYLON_DOUBLE;
+        }
+
         bool Vector3::isZero() const
         {
             return this->x * this->x + this->y * this->y + this->z * this->z <= POSITIVE_SQUARE_EPSYLON_DOUBLE;
@@ -98,6 +115,13 @@ namespace geometry
             this->z = z;
         }
 
+        void Vector3::setValues(const Vector3& vector)
+        {
+            this->x = vector.x;
+            this->y = vector.y;
+            this->z = vector.z;
+        }
+
         double Vector3::scalar(const double x, const double y, const double z) const
         {
             return this->x * x + this->y * y + this->z * z;
@@ -111,6 +135,25 @@ namespace geometry
         double Vector3::module() const
         {
             return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+        }
+
+        bool Vector3::normalize()
+        {
+            double sqareModule = this->x * this->x + this->y * this->y + this->z * this->z;
+
+            if (sqareModule <= POSITIVE_SQUARE_EPSYLON_DOUBLE)
+            {
+                this->setToZero();
+                return false;
+            }
+
+            double module = sqrt(sqareModule);
+
+            this->x /= module;
+            this->y /= module;
+            this->z /= module;
+
+            return true;
         }
 
         inline Vector3 Vector3::vectorMultiply(const Vector3 & vector) const

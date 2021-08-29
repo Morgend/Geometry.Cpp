@@ -42,6 +42,32 @@
     <ClInclude Include="stereometry\Vector3.h">
       <Filter>stereometry</Filter>
     </ClInclude>
+    <ClInclude Include="planimetry\Line2.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="planimetry\Line2F.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="planimetry\Ray2.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="planimetry\Ray2F.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Line3.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Line3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Ray3.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="stereometry\Ray3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="QuaternionF.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
@@ -83,6 +109,32 @@
     <ClCompile Include="stereometry\Vector3.cpp">
       <Filter>stereometry</Filter>
     </ClCompile>
+    <ClCompile Include="planimetry\Line2.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="planimetry\Line2F.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="planimetry\Ray2.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="planimetry\Ray2F.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Line3.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Line3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Ray3.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="stereometry\Ray3F.cpp">
+      <Filter>stereometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="QuaternionF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="planimetry">

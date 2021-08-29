@@ -93,7 +93,7 @@ namespace geometry
 
         float Triangle3F::square() const
         {
-            return 0.5 * ((B - A).vectorMultiply(C - A)).module();
+            return 0.5f * ((B - A).vectorMultiply(C - A)).module();
         }
 
         Vector3F Triangle3F::getMedianCentre() const

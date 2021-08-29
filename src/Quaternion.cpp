@@ -14,29 +14,13 @@
  * limitations under the License.
  */
 
-#include "Vector3F.h"
-#include "Vector3.h"
+#include "Quaternion.h"
 
 namespace geometry
 {
-    namespace stereometry
+    const double Quaternion::DEFAULT_VALUE = 0.0;
+
+    Quaternion::~Quaternion()
     {
-        const float Vector3F::DEFAULT_VALUE = 0.0f;
-
-        Vector3F::Vector3F(const Vector3 & vector)
-        {
-            this->x = (float)vector.x;
-            this->y = (float)vector.y;
-            this->z = (float)vector.z;
-        }
-
-        Vector3F::~Vector3F()
-        {
-        }
-
-        Vector3 Vector3F::toDouble() const
-        {
-            return Vector3(this->x, this->y, this->z);
-        }
-    } /* namespace stereometry */
-} /* namespace geometry */
+    }
+}

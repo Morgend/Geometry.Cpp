@@ -23,6 +23,12 @@ namespace geometry
     {
         const double Vector2::DEFAULT_VALUE = 0.0;
 
+        Vector2::Vector2(const Vector2F & vector)
+        {
+            this->x = vector.x;
+            this->y = vector.y;
+        }
+
         Vector2::~Vector2()
         {
         }

@@ -25,6 +25,8 @@ namespace geometry
 {
     namespace stereometry
     {
+        class Vector3;
+
         typedef class Vector3F
         {
         public:
@@ -35,10 +37,12 @@ namespace geometry
             float z;
 
             inline Vector3F();
+            inline Vector3F(const Vector3 & vector);
             inline Vector3F(const float x, const float y, const float z);
 
             virtual ~Vector3F();
 
+            inline bool isUnit() const;
             inline bool isZero() const;
 
             inline void setToZero();
@@ -48,6 +52,10 @@ namespace geometry
             inline float scalar(const Vector3F & vector) const;
 
             inline float module() const;
+
+            inline bool normalize();
+
+            inline Vector3 toDouble() const;
 
             inline Vector3F vectorMultiply(const Vector3F& vector) const;
 
@@ -77,6 +85,13 @@ namespace geometry
             this->x = x;
             this->y = y;
             this->z = z;
+        }
+
+        bool Vector3F::isUnit() const
+        {
+            float difference = this->x * this->x + this->y * this->y + this->z * this->z - 1.0f;
+
+            return NEGATIVE_EPSYLON_FLOAT <= difference && difference <= POSITIVE_EPSYLON_FLOAT;
         }
 
         bool Vector3F::isZero() const
@@ -111,6 +126,25 @@ namespace geometry
         float Vector3F::module() const
         {
             return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+        }
+
+        bool Vector3F::normalize()
+        {
+            float sqareModule = this->x * this->x + this->y * this->y + this->z * this->z;
+
+            if (sqareModule <= POSITIVE_SQUARE_EPSYLON_DOUBLE)
+            {
+                this->setToZero();
+                return false;
+            }
+
+            float module = sqrtf(sqareModule);
+
+            this->x /= module;
+            this->y /= module;
+            this->z /= module;
+
+            return true;
         }
 
         inline Vector3F Vector3F::vectorMultiply(const Vector3F& vector) const
