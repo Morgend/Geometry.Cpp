@@ -17,7 +17,7 @@
 #ifndef _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 #define _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 
-#include "../AngleF.h"
+#include "../Angle.h"
 #include "Matrix2x2F.h"
 #include "Vector2F.h"
 

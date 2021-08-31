@@ -22,6 +22,8 @@
 
 namespace geometry
 {
+    class QuaternionF;
+
     class Quaternion
     {
     public:
@@ -48,9 +50,9 @@ namespace geometry
 
         inline Quaternion getConjugated() const;
 
-        double module() const;
+        inline double module() const;
 
-        bool normalize();
+        inline bool normalize();
     };
 
     Quaternion::Quaternion()

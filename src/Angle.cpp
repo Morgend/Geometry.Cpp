@@ -15,7 +15,6 @@
  */
 
 #include "Angle.h"
-#include "AngleF.h"
 
 namespace geometry
 {
@@ -28,9 +27,12 @@ namespace geometry
     {
     }
 
-    AngleF Angle::toFloat() const
-    {
-        return AngleF((float)this->value);
-    }
+    const float AngleF::DEFAULT_VALUE = 0.0f;
+    const float AngleF::DEGREES_IN_RADIAN = 57.295779513f;
+    const float AngleF::GRADIANS_IN_RADIAN = 63.661977237f;
+    const float AngleF::DEGREES_IN_GRADIAN = 0.9f;
 
+    AngleF::~AngleF()
+    {
+    }
 } /* namespace geometry */

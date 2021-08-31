@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _GEOMETRY_PLANIMETRY_RAY2_H_
-#define _GEOMETRY_PLANIMETRY_RAY2_H_
+#ifndef _GEOMETRY_PLANIMETRY_LINE2_H_
+#define _GEOMETRY_PLANIMETRY_LINE2_H_
 
 #include "Vector2.h"
 
@@ -23,17 +23,24 @@ namespace geometry
 {
     namespace planimetry
     {
+        class Line2F;
+
         class Line2
         {
         public:
             inline Line2();
             inline Line2(const Vector2& basicPoint, const Vector2& direction);
+            inline Line2(const double basicX, const double basicY, const double directionX, const double directionY);
             virtual ~Line2();
 
             inline bool isValid() const;
 
             inline const Vector2& basic() const;
             inline const Vector2& direction() const;
+
+            inline void setValuesOf(const Line2& line);
+            inline void setValues(const Vector2& basicPoint, const Vector2& direction);
+            inline void setValues(const double basicX, const double basicY, const double directionX, const double directionY);
 
             Vector2 pointAt(const float position) const;
 
@@ -51,6 +58,13 @@ namespace geometry
         Line2::Line2(const Vector2& basicPoint, const Vector2& direction)
             : linePoint(basicPoint)
             , lineDirection(direction)
+        {
+            this->valid = this->lineDirection.normalize();
+        }
+
+        Line2::Line2(const double basicX, const double basicY, const double directionX, const double directionY)
+            : linePoint(basicX, basicY)
+            , lineDirection(directionX, directionY)
         {
             this->valid = this->lineDirection.normalize();
         }

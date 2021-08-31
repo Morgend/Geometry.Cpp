@@ -140,11 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Angle.h" />
-    <ClInclude Include="AngleF.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="planimetry\Converter2F.h" />
     <ClInclude Include="planimetry\Line2.h" />
     <ClInclude Include="planimetry\Line2F.h" />
+    <ClInclude Include="planimetry\LineSegment2.h" />
     <ClInclude Include="planimetry\Matrix2x2F.h" />
     <ClInclude Include="planimetry\Ray2.h" />
     <ClInclude Include="planimetry\Ray2F.h" />
@@ -169,10 +169,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
-    <ClCompile Include="AngleF.cpp" />
     <ClCompile Include="planimetry\Converter2F.cpp" />
     <ClCompile Include="planimetry\Line2.cpp" />
     <ClCompile Include="planimetry\Line2F.cpp" />
+    <ClCompile Include="planimetry\LineSegment2.cpp" />
     <ClCompile Include="planimetry\Matrix2x2F.cpp" />
     <ClCompile Include="planimetry\Ray2.cpp" />
     <ClCompile Include="planimetry\Ray2F.cpp" />

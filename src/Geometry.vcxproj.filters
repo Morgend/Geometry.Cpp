@@ -4,7 +4,6 @@
     <ClInclude Include="geometry.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Angle.h" />
-    <ClInclude Include="AngleF.h" />
     <ClInclude Include="planimetry\Converter2F.h">
       <Filter>planimetry</Filter>
     </ClInclude>
@@ -68,10 +67,12 @@
     </ClInclude>
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="QuaternionF.h" />
+    <ClInclude Include="planimetry\LineSegment2.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
-    <ClCompile Include="AngleF.cpp" />
     <ClCompile Include="planimetry\Converter2F.cpp">
       <Filter>planimetry</Filter>
     </ClCompile>
@@ -135,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="QuaternionF.cpp" />
+    <ClCompile Include="planimetry\LineSegment2.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="planimetry">

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2021 Andrey Pokidov <andrey.pokidov@gmail.com>
+ * Copyright 2020-2021 Andrey Pokidov <andrey.pokidov@gmail.com>Line2
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-#include "AngleF.h"
-#include "Angle.h"
+#include "LineSegment2.h"
 
 namespace geometry
 {
-    const float AngleF::DEFAULT_VALUE = 0.0;
-    const float AngleF::DEGREES_IN_RADIAN  = 57.295779513f;
-    const float AngleF::GRADIANS_IN_RADIAN = 63.661977237f;
-    const float AngleF::DEGREES_IN_GRADIAN = 0.9f;
-
-    AngleF::~AngleF()
+    namespace planimetry
     {
+        LineSegment2::~LineSegment2()
+        {
+        }
     }
-
-    Angle AngleF::toDouble() const
-    {
-        return Angle(this->value);
-    }
-} /* namespace geometry */
+}
