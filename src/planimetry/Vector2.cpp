@@ -15,27 +15,31 @@
  */
 
 #include "Vector2.h"
-#include "Vector2F.h"
+
+#include "../constants.h"
 
 namespace geometry
 {
     namespace planimetry
     {
-        const double Vector2::DEFAULT_VALUE = 0.0;
-
-        Vector2::Vector2(const Vector2F & vector)
-        {
-            this->x = vector.x;
-            this->y = vector.y;
-        }
+        template<> const double BasicVector2Template<double>::ZERO = 0.0;
+        template<> const double BasicVector2Template<double>::UNIT = 1.0;
+        template<> const double BasicVector2Template<double>::EPSYLON = POSITIVE_EPSYLON_DOUBLE;
+        template<> const double BasicVector2Template<double>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_DOUBLE;
+        template<> const double BasicVector2Template<double>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_DOUBLE;
 
         Vector2::~Vector2()
         {
         }
 
-        Vector2F Vector2::toFloat() const
+        template<> const float BasicVector2Template<float>::ZERO = 0.0f;
+        template<> const float BasicVector2Template<float>::UNIT = 1.0f;
+        template<> const float BasicVector2Template<float>::EPSYLON = POSITIVE_EPSYLON_FLOAT;
+        template<> const float BasicVector2Template<float>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_FLOAT;
+        template<> const float BasicVector2Template<float>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_FLOAT;
+
+        Vector2F::~Vector2F()
         {
-            return Vector2F((float)this->x, (float)this->y);
         }
     } /* namespace planimetry */
 } /* namespace geometry */

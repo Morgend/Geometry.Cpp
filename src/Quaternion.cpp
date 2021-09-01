@@ -16,11 +16,27 @@
 
 #include "Quaternion.h"
 
+#include "constants.h"
+
 namespace geometry
 {
-    const double Quaternion::DEFAULT_VALUE = 0.0;
+    template<> const double BasicQuaternionTemplate<double>::ZERO = 0.0;
+    template<> const double BasicQuaternionTemplate<double>::UNIT = 1.0;
+    template<> const double BasicQuaternionTemplate<double>::EPSYLON = POSITIVE_EPSYLON_DOUBLE;
+    template<> const double BasicQuaternionTemplate<double>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_DOUBLE;
+    template<> const double BasicQuaternionTemplate<double>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_DOUBLE;
 
     Quaternion::~Quaternion()
+    {
+    }
+
+    template<> const float BasicQuaternionTemplate<float>::ZERO = 0.0f;
+    template<> const float BasicQuaternionTemplate<float>::UNIT = 1.0f;
+    template<> const float BasicQuaternionTemplate<float>::EPSYLON = POSITIVE_EPSYLON_FLOAT;
+    template<> const float BasicQuaternionTemplate<float>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_FLOAT;
+    template<> const float BasicQuaternionTemplate<float>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_FLOAT;
+
+    QuaternionF::~QuaternionF()
     {
     }
 }

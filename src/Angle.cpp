@@ -18,19 +18,19 @@
 
 namespace geometry
 {
-    const double Angle::DEFAULT_VALUE = 0.0;
-    const double Angle::DEGREES_IN_RADIAN = 57.2957795130823209;
-    const double Angle::GRADIANS_IN_RADIAN = 63.6619772367581343;
-    const double Angle::DEGREES_IN_GRADIAN = 0.9;
+	template <> const double AngleTemplate<double>::ZERO = 0.0;
+	template <> const double AngleTemplate<double>::DEGREES_IN_RADIAN = 57.2957795130823209;
+	template <> const double AngleTemplate<double>::GRADIANS_IN_RADIAN = 63.6619772367581343;
+	template <> const double AngleTemplate<double>::DEGREES_IN_GRADIAN = 0.9;
 
     Angle::~Angle()
     {
     }
 
-    const float AngleF::DEFAULT_VALUE = 0.0f;
-    const float AngleF::DEGREES_IN_RADIAN = 57.295779513f;
-    const float AngleF::GRADIANS_IN_RADIAN = 63.661977237f;
-    const float AngleF::DEGREES_IN_GRADIAN = 0.9f;
+    template <> const float AngleTemplate<float>::ZERO = 0.0f;
+    template <> const float AngleTemplate<float>::DEGREES_IN_RADIAN = 57.295779513f;
+    template <> const float AngleTemplate<float>::GRADIANS_IN_RADIAN = 63.661977237f;
+    template <> const float AngleTemplate<float>::DEGREES_IN_GRADIAN = 0.9f;
 
     AngleF::~AngleF()
     {

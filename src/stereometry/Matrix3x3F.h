@@ -17,7 +17,7 @@
 #ifndef _GEOMETRY_STEREOMETRY_MATRIX3X3_F_H_
 #define _GEOMETRY_STEREOMETRY_MATRIX3X3_F_H_
 
-#include "Vector3F.h"
+#include "Vector3.h"
 
 namespace geometry
 {

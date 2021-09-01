@@ -19,7 +19,7 @@
 
 #include "../Angle.h"
 #include "Matrix2x2F.h"
-#include "Vector2F.h"
+#include "Vector2.h"
 
 namespace geometry
 {

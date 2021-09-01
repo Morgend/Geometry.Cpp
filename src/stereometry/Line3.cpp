@@ -24,5 +24,17 @@ namespace geometry
         Line3::~Line3()
         {
         }
+
+        Line3F::~Line3F()
+        {
+        }
+
+        Ray3::~Ray3()
+        {
+        }
+
+        Ray3F::~Ray3F()
+        {
+        }
     }
 }

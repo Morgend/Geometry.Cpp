@@ -15,35 +15,29 @@
  */
 
 #include "Vector3.h"
-#include "Vector3F.h"
 
 namespace geometry
 {
     namespace stereometry
     {
-        const double Vector3::DEFAULT_VALUE = 0.0;
-
-        Vector3::Vector3(const Vector3F& vector)
-        {
-            this->x = vector.x;
-            this->y = vector.y;
-            this->z = vector.z;
-        }
+        template<> const double BasicVector3Template<double>::ZERO = 0.0;
+        template<> const double BasicVector3Template<double>::UNIT = 1.0;
+        template<> const double BasicVector3Template<double>::EPSYLON = POSITIVE_EPSYLON_DOUBLE;
+        template<> const double BasicVector3Template<double>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_DOUBLE;
+        template<> const double BasicVector3Template<double>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_DOUBLE;
 
         Vector3::~Vector3()
         {
         }
 
-        void Vector3::setValues(const Vector3F& vector)
-        {
-            this->x = vector.x;
-            this->y = vector.y;
-            this->z = vector.z;
-        }
+        template<> const float BasicVector3Template<float>::ZERO = 0.0f;
+        template<> const float BasicVector3Template<float>::UNIT = 1.0f;
+        template<> const float BasicVector3Template<float>::EPSYLON = POSITIVE_EPSYLON_FLOAT;
+        template<> const float BasicVector3Template<float>::NEGATIVE_EPSYLON = NEGATIVE_EPSYLON_FLOAT;
+        template<> const float BasicVector3Template<float>::SQUARE_EPSYLON = POSITIVE_SQUARE_EPSYLON_FLOAT;
 
-        Vector3F Vector3::toFloat() const
+        Vector3F::~Vector3F()
         {
-            return Vector3F((float)this->x, (float)this->y, (float)this->z);
         }
     } /* namespace stereometry */
 } /* namespace geometry */

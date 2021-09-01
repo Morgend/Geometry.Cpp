@@ -17,7 +17,7 @@
 #ifndef _GEOMETRY_PLANIMETRY_MATRIX2X2_F_H_
 #define _GEOMETRY_PLANIMETRY_MATRIX2X2_F_H_
 
-#include "Vector2F.h"
+#include "Vector2.h"
 
 namespace geometry
 {

@@ -17,6 +17,8 @@
 #ifndef _GEOMETRY_ANGLE_H_
 #define _GEOMETRY_ANGLE_H_
 
+#include <math.h>
+
 namespace geometry
 {
     enum AngleScale
@@ -31,7 +33,7 @@ namespace geometry
     template<typename FloatType> class AngleTemplate
     {
     public:
-        static const FloatType DEFAULT_VALUE;
+        static const FloatType ZERO;
 
         static const FloatType DEGREES_IN_RADIAN;
         static const FloatType GRADIANS_IN_RADIAN;
@@ -40,6 +42,11 @@ namespace geometry
         virtual ~AngleTemplate()
         {
         }
+
+        inline void setToZero();
+
+        inline FloatType get(const AngleScale scale) const;
+        inline void set(const FloatType angle, const AngleScale scale);
 
         inline void setValueOf(const AngleTemplate<FloatType>& angle);
 
@@ -52,10 +59,24 @@ namespace geometry
         inline FloatType gradians() const;
         inline void setGradians(const FloatType gradians);
 
+        inline void add(const FloatType angle, const AngleScale scale);
+        inline void subtract(const FloatType angle, const AngleScale scale);
+
+        inline bool operator < (const FloatType radians) const;
+        inline bool operator < (const AngleTemplate<FloatType>& angle) const;
+        inline bool operator > (const FloatType radians) const;
+        inline bool operator > (const AngleTemplate<FloatType>& angle) const;
+        inline bool operator <= (const FloatType radians) const;
+        inline bool operator <= (const AngleTemplate<FloatType>& angle) const;
+        inline bool operator >= (const FloatType radians) const;
+        inline bool operator >= (const AngleTemplate<FloatType>& angle) const;
+
         inline operator FloatType() const;
 
     protected:
         FloatType value;
+
+        inline static FloatType toRadians(const FloatType angle, const AngleScale scale);
     };
 
     // =================== Angle<double> header =================== //
@@ -74,6 +95,11 @@ namespace geometry
         inline void setValueOf(const AngleF& angle);
 
         inline AngleF toFloat() const;
+
+        inline double cos() const;
+        inline double sin() const;
+        inline double tg() const;
+        inline double ctg() const;
 
         inline Angle operator+(const double radians) const;
         inline Angle operator+(const Angle& angle) const;
@@ -109,6 +135,11 @@ namespace geometry
 
         inline Angle toDouble() const;
 
+        inline float cos() const;
+        inline float sin() const;
+        inline float tg() const;
+        inline float ctg() const;
+
         inline AngleF operator+(const float radians) const;
         inline AngleF operator+(const AngleF& angle) const;
         inline AngleF operator-(const float radians) const;
@@ -129,6 +160,31 @@ namespace geometry
     };
 
     // =============== AngleTemplate inline methods =============== //
+
+    template<typename FloatType> void AngleTemplate<FloatType>::setToZero()
+    {
+        this->value = ZERO;
+    }
+
+    template<typename FloatType> FloatType AngleTemplate<FloatType>::get(const AngleScale scale) const
+    {
+        if (scale == AngleScale::DEGREES)
+        {
+            return this->value * DEGREES_IN_RADIAN;
+        }
+
+        if (scale == AngleScale::GRADIANS)
+        {
+            return this->value * GRADIANS_IN_RADIAN;
+        }
+
+        return this->value;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::set(const FloatType angle, const AngleScale scale)
+    {
+        this->value = AngleTemplate<FloatType>::toRadians(angle, scale);
+    }
 
     template<typename FloatType> void AngleTemplate<FloatType>::setValueOf(const AngleTemplate<FloatType>& angle)
     {
@@ -165,16 +221,81 @@ namespace geometry
         this->value = degrees / GRADIANS_IN_RADIAN;
     }
 
+    template<typename FloatType> void AngleTemplate<FloatType>::add(const FloatType angle, const AngleScale scale)
+    {
+        this->value += AngleTemplate<FloatType>::toRadians(angle, scale);
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::subtract(const FloatType angle, const AngleScale scale)
+    {
+        this->value -= AngleTemplate<FloatType>::toRadians(angle, scale);
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator < (const FloatType radians) const
+    {
+        return this->value < radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator < (const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value < angle.value;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator > (const FloatType radians) const
+    {
+        return this->value > radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator > (const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value > angle.value;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator <= (const FloatType radians) const
+    {
+        return this->value <= radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator <= (const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value <= angle.value;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator >= (const FloatType radians) const
+    {
+        return this->value >= radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator >= (const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value >= angle.value;
+    }
+
     template<typename FloatType> AngleTemplate<FloatType>::operator FloatType() const
     {
         return this->value;
+    }
+
+    template<typename FloatType> FloatType AngleTemplate<FloatType>::toRadians(const FloatType angle, const AngleScale scale)
+    {
+        if (scale == AngleScale::DEGREES)
+        {
+            return angle / DEGREES_IN_RADIAN;
+        }
+
+        if (scale == AngleScale::GRADIANS)
+        {
+            return angle / GRADIANS_IN_RADIAN;
+        }
+
+        return angle;
     }
 
     // =============== Angle<double> inline methods =============== //
 
     Angle::Angle()
     {
-        this->value = DEFAULT_VALUE;
+        this->value = ZERO;
     }
 
     Angle::Angle(const AngleF& angle)
@@ -189,19 +310,7 @@ namespace geometry
 
     Angle::Angle(const double angle, const AngleScale scale)
     {
-        switch(scale)
-        {
-        case DEGREES:
-            this->value = angle / DEGREES_IN_RADIAN;
-            break;
-
-        case GRADIANS:
-            this->value = angle / GRADIANS_IN_RADIAN;
-            break;
-
-        default:
-            this->value = angle;
-        }
+        this->set(angle, scale);
     }
 
     void Angle::setValueOf(const AngleF& angle)
@@ -212,6 +321,26 @@ namespace geometry
     AngleF Angle::toFloat() const
     {
         return AngleF((float)this->value);
+    }
+
+    double Angle::cos() const
+    {
+        return ::cos(this->value);
+    }
+
+    double Angle::sin() const
+    {
+        return ::sin(this->value);
+    }
+
+    double Angle::tg() const
+    {
+        return ::tan(this->value);
+    }
+
+    double Angle::ctg() const
+    {
+        return 1.0 / ::tan(this->value);
     }
 
     Angle Angle::operator+(const double radians) const
@@ -301,7 +430,7 @@ namespace geometry
 
     AngleF::AngleF()
     {
-        this->value = AngleF::DEFAULT_VALUE;
+        this->value = AngleF::ZERO;
     }
 
     AngleF::AngleF(const Angle& angle)
@@ -316,19 +445,7 @@ namespace geometry
 
     AngleF::AngleF(const float angle, const AngleScale scale)
     {
-        switch (scale)
-        {
-        case DEGREES:
-            this->value = angle / DEGREES_IN_RADIAN;
-            break;
-
-        case GRADIANS:
-            this->value = angle / GRADIANS_IN_RADIAN;
-            break;
-
-        default:
-            this->value = angle;
-        }
+        this->set(angle, scale);
     }
 
     void AngleF::setValueOf(const Angle& angle)
@@ -339,6 +456,26 @@ namespace geometry
     Angle AngleF::toDouble() const
     {
         return Angle(this->value);
+    }
+
+    float AngleF::cos() const
+    {
+        return ::cosf(this->value);
+    }
+
+    float AngleF::sin() const
+    {
+        return ::sinf(this->value);
+    }
+
+    float AngleF::tg() const
+    {
+        return ::tanf(this->value);
+    }
+
+    float AngleF::ctg() const
+    {
+        return 1.0f / ::tanf(this->value);
     }
 
     AngleF AngleF::operator+(const float radians) const

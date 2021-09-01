@@ -18,6 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Angle.cpp" />
+    <ClCompile Include="constants.cpp" />
+    <ClCompile Include="planimetry\Converter2F.cpp" />
+    <ClCompile Include="planimetry\Line2.cpp" />
+    <ClCompile Include="planimetry\LineSegment2.cpp" />
+    <ClCompile Include="planimetry\Matrix2x2F.cpp" />
+    <ClCompile Include="planimetry\Triangle2.cpp" />
+    <ClCompile Include="planimetry\Vector2.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="stereometry\Converter3F.cpp" />
+    <ClCompile Include="stereometry\Line3.cpp" />
+    <ClCompile Include="stereometry\Matrix3x3F.cpp" />
+    <ClCompile Include="stereometry\Triangle3.cpp" />
+    <ClCompile Include="stereometry\Vector3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angle.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="geometry.h" />
+    <ClInclude Include="planimetry\Converter2F.h" />
+    <ClInclude Include="planimetry\Line2.h" />
+    <ClInclude Include="planimetry\LineSegment2.h" />
+    <ClInclude Include="planimetry\LineSegment2Template.h" />
+    <ClInclude Include="planimetry\Matrix2x2F.h" />
+    <ClInclude Include="planimetry\Triangle2.h" />
+    <ClInclude Include="planimetry\Vector2.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="stereometry\Converter3F.h" />
+    <ClInclude Include="stereometry\Line3.h" />
+    <ClInclude Include="stereometry\Matrix3x3F.h" />
+    <ClInclude Include="stereometry\Triangle3.h" />
+    <ClInclude Include="stereometry\Vector3.h" />
+    <ClInclude Include="types.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,62 +173,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Angle.h" />
-    <ClInclude Include="geometry.h" />
-    <ClInclude Include="planimetry\Converter2F.h" />
-    <ClInclude Include="planimetry\Line2.h" />
-    <ClInclude Include="planimetry\Line2F.h" />
-    <ClInclude Include="planimetry\LineSegment2.h" />
-    <ClInclude Include="planimetry\Matrix2x2F.h" />
-    <ClInclude Include="planimetry\Ray2.h" />
-    <ClInclude Include="planimetry\Ray2F.h" />
-    <ClInclude Include="planimetry\Triangle2.h" />
-    <ClInclude Include="planimetry\Triangle2F.h" />
-    <ClInclude Include="planimetry\Vector2.h" />
-    <ClInclude Include="planimetry\Vector2F.h" />
-    <ClInclude Include="Quaternion.h" />
-    <ClInclude Include="QuaternionF.h" />
-    <ClInclude Include="stereometry\Converter3F.h" />
-    <ClInclude Include="stereometry\Line3.h" />
-    <ClInclude Include="stereometry\Line3F.h" />
-    <ClInclude Include="stereometry\Matrix3x3F.h" />
-    <ClInclude Include="stereometry\Ray3.h" />
-    <ClInclude Include="stereometry\Ray3F.h" />
-    <ClInclude Include="stereometry\Triangle3.h" />
-    <ClInclude Include="stereometry\Triangle3F.h" />
-    <ClInclude Include="stereometry\Vector3.h" />
-    <ClInclude Include="stereometry\Vector3F.h" />
-    <ClInclude Include="types.h" />
-    <ClInclude Include="constants.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Angle.cpp" />
-    <ClCompile Include="planimetry\Converter2F.cpp" />
-    <ClCompile Include="planimetry\Line2.cpp" />
-    <ClCompile Include="planimetry\Line2F.cpp" />
-    <ClCompile Include="planimetry\LineSegment2.cpp" />
-    <ClCompile Include="planimetry\Matrix2x2F.cpp" />
-    <ClCompile Include="planimetry\Ray2.cpp" />
-    <ClCompile Include="planimetry\Ray2F.cpp" />
-    <ClCompile Include="planimetry\Triangle2.cpp" />
-    <ClCompile Include="planimetry\Triangle2F.cpp" />
-    <ClCompile Include="planimetry\Vector2.cpp" />
-    <ClCompile Include="planimetry\Vector2F.cpp" />
-    <ClCompile Include="constants.cpp" />
-    <ClCompile Include="Quaternion.cpp" />
-    <ClCompile Include="QuaternionF.cpp" />
-    <ClCompile Include="stereometry\Converter3F.cpp" />
-    <ClCompile Include="stereometry\Line3.cpp" />
-    <ClCompile Include="stereometry\Line3F.cpp" />
-    <ClCompile Include="stereometry\Matrix3x3F.cpp" />
-    <ClCompile Include="stereometry\Ray3.cpp" />
-    <ClCompile Include="stereometry\Ray3F.cpp" />
-    <ClCompile Include="stereometry\Triangle3.cpp" />
-    <ClCompile Include="stereometry\Triangle3F.cpp" />
-    <ClCompile Include="stereometry\Vector3.cpp" />
-    <ClCompile Include="stereometry\Vector3F.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

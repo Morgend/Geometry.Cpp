@@ -15,7 +15,6 @@
  */
 
 #include "Triangle3.h"
-#include "Triangle3F.h"
 
 namespace geometry
 {
@@ -25,23 +24,8 @@ namespace geometry
         {
         }
 
-        Triangle3F Triangle3::toFloat() const
+        Triangle3F::~Triangle3F()
         {
-            Triangle3F result;
-
-            result.A.x = (float)this->A.x;
-            result.A.y = (float)this->A.y;
-            result.A.z = (float)this->A.z;
-
-            result.B.x = (float)this->B.x;
-            result.B.y = (float)this->B.y;
-            result.B.z = (float)this->B.z;
-
-            result.C.x = (float)this->C.x;
-            result.C.y = (float)this->C.y;
-            result.C.z = (float)this->C.z;
-
-            return result;
         }
     }
 }

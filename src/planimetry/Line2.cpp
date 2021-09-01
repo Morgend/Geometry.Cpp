@@ -24,5 +24,17 @@ namespace geometry
         Line2::~Line2()
         {
         }
+
+        Line2F::~Line2F()
+        {
+        }
+
+        Ray2::~Ray2()
+        {
+        }
+
+        Ray2F::~Ray2F()
+        {
+        }
     }
 }
