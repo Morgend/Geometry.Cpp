@@ -60,7 +60,17 @@ namespace geometry
         inline void setGradians(const FloatType gradians);
 
         inline void add(const FloatType angle, const AngleScale scale);
+        inline void addRadians(const FloatType radians);
+        inline void addDegrees(const FloatType degrees);
+        inline void addGradians(const FloatType gradians);
+
         inline void subtract(const FloatType angle, const AngleScale scale);
+        inline void subtractRadians(const FloatType radians);
+        inline void subtractDegrees(const FloatType degrees);
+        inline void subtractGradians(const FloatType gradians);
+
+        inline void multiply(const FloatType value);
+        inline void divide(const FloatType value);
 
         inline bool operator < (const FloatType radians) const;
         inline bool operator < (const AngleTemplate<FloatType>& angle) const;
@@ -215,7 +225,7 @@ namespace geometry
 
     template<typename FloatType> void AngleTemplate<FloatType>::setGradians(const FloatType gradians)
     {
-        this->value = degrees / GRADIANS_IN_RADIAN;
+        this->value = gradians / GRADIANS_IN_RADIAN;
     }
 
     template<typename FloatType> void AngleTemplate<FloatType>::add(const FloatType angle, const AngleScale scale)
@@ -223,9 +233,49 @@ namespace geometry
         this->value += AngleTemplate<FloatType>::toRadians(angle, scale);
     }
 
+    template<typename FloatType> void AngleTemplate<FloatType>::addRadians(const FloatType radians)
+    {
+        this->value += radians;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::addDegrees(const FloatType degrees)
+    {
+        this->value += degrees / DEGREES_IN_RADIAN;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::addGradians(const FloatType gradians)
+    {
+        this->value += gradians / GRADIANS_IN_RADIAN;
+    }
+
     template<typename FloatType> void AngleTemplate<FloatType>::subtract(const FloatType angle, const AngleScale scale)
     {
         this->value -= AngleTemplate<FloatType>::toRadians(angle, scale);
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::subtractRadians(const FloatType radians)
+    {
+        this->value -= radians;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::subtractDegrees(const FloatType degrees)
+    {
+        this->value -= degrees / DEGREES_IN_RADIAN;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::subtractGradians(const FloatType gradians)
+    {
+        this->value -= gradians / GRADIANS_IN_RADIAN;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::multiply(const FloatType value)
+    {
+        this->value *= value;
+    }
+
+    template<typename FloatType> void AngleTemplate<FloatType>::divide(const FloatType value)
+    {
+        this->value /= value;
     }
 
     template<typename FloatType> bool AngleTemplate<FloatType>::operator < (const FloatType radians) const
