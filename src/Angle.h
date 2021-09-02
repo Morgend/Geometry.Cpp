@@ -70,9 +70,14 @@ namespace geometry
         inline bool operator <= (const AngleTemplate<FloatType>& angle) const;
         inline bool operator >= (const FloatType radians) const;
         inline bool operator >= (const AngleTemplate<FloatType>& angle) const;
+        inline bool operator==(const FloatType radians) const;
+        inline bool operator==(const AngleTemplate<FloatType>& angle) const;
+        inline bool operator!=(const FloatType radians) const;
+        inline bool operator!=(const AngleTemplate<FloatType>& angle) const;
 
         inline operator FloatType() const;
 
+        inline FloatType operator/(const AngleTemplate<FloatType>& angle) const;
     protected:
         FloatType value;
 
@@ -107,7 +112,6 @@ namespace geometry
         inline Angle operator-(const Angle& angle) const;
         inline Angle operator*(const double value) const;
         inline Angle operator/(const double value) const;
-        inline double operator/(const Angle& angle) const;
 
         inline Angle& operator+=(const double radians);
         inline Angle& operator+=(const Angle& angle);
@@ -115,9 +119,6 @@ namespace geometry
         inline Angle& operator-=(const Angle& angle);
         inline Angle& operator*=(const double value);
         inline Angle& operator/=(const double value);
-
-        inline bool operator==(const double radians) const;
-        inline bool operator==(const Angle& angle) const;
     };
 
     // =================== Angle<float> header ==================== //
@@ -146,7 +147,6 @@ namespace geometry
         inline AngleF operator-(const AngleF& angle) const;
         inline AngleF operator*(const float value) const;
         inline AngleF operator/(const float value) const;
-        inline float operator/(const AngleF& angle) const;
 
         inline AngleF& operator+=(const float radians);
         inline AngleF& operator+=(const AngleF& angle);
@@ -154,9 +154,6 @@ namespace geometry
         inline AngleF& operator-=(const AngleF& angle);
         inline AngleF& operator*=(const float value);
         inline AngleF& operator/=(const float value);
-
-        inline bool operator==(const float radians) const;
-        inline bool operator==(const AngleF& angle) const;
     };
 
     // =============== AngleTemplate inline methods =============== //
@@ -271,9 +268,34 @@ namespace geometry
         return this->value >= angle.value;
     }
 
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator==(const FloatType radians) const
+    {
+        return this->value == radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator==(const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value == angle.radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator!=(const FloatType radians) const
+    {
+        return this->value != radians;
+    }
+
+    template<typename FloatType> bool AngleTemplate<FloatType>::operator!=(const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value != angle.radians;
+    }
+
     template<typename FloatType> AngleTemplate<FloatType>::operator FloatType() const
     {
         return this->value;
+    }
+
+    template<typename FloatType> FloatType AngleTemplate<FloatType>::operator/(const AngleTemplate<FloatType>& angle) const
+    {
+        return this->value / angle.value;
     }
 
     template<typename FloatType> FloatType AngleTemplate<FloatType>::toRadians(const FloatType angle, const AngleScale scale)
@@ -373,11 +395,6 @@ namespace geometry
         return Angle(this->value / value);
     }
 
-    double Angle::operator/(const Angle& angle) const
-    {
-        return this->value / angle.value;
-    }
-
     Angle& Angle::operator+=(const double radians)
     {
         this->value += radians;
@@ -412,18 +429,6 @@ namespace geometry
     {
         this->value /= value;
         return (*this);
-    }
-
-    bool Angle::operator==(const double radians) const
-    {
-        //TODO: change comparsion
-        return this->value == radians;
-    }
-
-    bool Angle::operator==(const Angle& angle) const
-    {
-        //TODO: change comparsion
-        return this->value == angle.value;
     }
 
     // =============== Angle<float> inline methods ================ //
@@ -508,11 +513,6 @@ namespace geometry
         return AngleF(this->value / value);
     }
 
-    float AngleF::operator/(const AngleF& angle) const
-    {
-        return this->value / angle.value;
-    }
-
     AngleF& AngleF::operator+=(const float radians)
     {
         this->value += radians;
@@ -547,18 +547,6 @@ namespace geometry
     {
         this->value /= value;
         return (*this);
-    }
-
-    bool AngleF::operator==(const float radians) const
-    {
-        //TODO: change comparsion
-        return this->value == radians;
-    }
-
-    bool AngleF::operator==(const AngleF& angle) const
-    {
-        //TODO: change comparsion
-        return this->value == angle.value;
     }
 
     // =========================== End ============================ //
