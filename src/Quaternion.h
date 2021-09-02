@@ -150,10 +150,10 @@ namespace geometry
 
     template<typename FloatType> bool BasicQuaternionTemplate<FloatType>::isCloseTo(const BasicQuaternionTemplate<FloatType>& quaternion) const
     {
-        FloatType dw = this->w - vector.w;
-        FloatType dx = this->x - vector.x;
-        FloatType dy = this->y - vector.y;
-        FloatType dz = this->z - vector.z;
+        FloatType dw = this->w - quaternion.w;
+        FloatType dx = this->x - quaternion.x;
+        FloatType dy = this->y - quaternion.y;
+        FloatType dz = this->z - quaternion.z;
 
         return dw * dw + dx * dx + dy * dy + dz * dz <= SQUARE_EPSYLON;
 
