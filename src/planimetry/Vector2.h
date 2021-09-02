@@ -46,6 +46,8 @@ namespace geometry
 
             inline bool isZero() const;
             inline bool isUnit() const;
+            inline bool isCloseTo(const FloatType x, const FloatType y) const;
+            inline bool isCloseTo(const BasicVector2Template<FloatType>& vector) const;
 
             inline void setValues(const FloatType x, const FloatType y);
             inline void setValuesOf(const BasicVector2Template<FloatType> & vector);
@@ -136,6 +138,22 @@ namespace geometry
         {
             FloatType difference = this->x * this->x + this->y * this->y - UNIT;
             return NEGATIVE_EPSYLON <= difference && difference <= EPSYLON;
+        }
+
+        template<typename FloatType> bool BasicVector2Template<FloatType>::isCloseTo(const FloatType x, const FloatType y) const
+        {
+            FloatType dx = this->x - x;
+            FloatType dy = this->y - y;
+
+            return dx * dx + dy * dy <= SQUARE_EPSYLON;
+        }
+
+        template<typename FloatType> bool BasicVector2Template<FloatType>::isCloseTo(const BasicVector2Template<FloatType>& vector) const
+        {
+            FloatType dx = this->x - vector.x;
+            FloatType dy = this->y - vector.y;
+
+            return dx * dx + dy * dy <= SQUARE_EPSYLON;
         }
 
         template<typename FloatType> void BasicVector2Template<FloatType>::setValues(const FloatType x, const FloatType y)

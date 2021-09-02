@@ -46,6 +46,8 @@ namespace geometry
 
         inline bool isZero() const;
         inline bool isUnit() const;
+        inline bool isCloseTo(const FloatType w, const FloatType x, const FloatType y, const FloatType z) const;
+        inline bool isCloseTo(const BasicQuaternionTemplate<FloatType>& quaternion) const;
 
         inline void conjugate();
     };
@@ -134,6 +136,27 @@ namespace geometry
         FloatType difference = this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w - UNIT;
 
         return NEGATIVE_EPSYLON <= difference && difference <= EPSYLON;
+    }
+
+    template<typename FloatType> bool BasicQuaternionTemplate<FloatType>::isCloseTo(const FloatType w, const FloatType x, const FloatType y, const FloatType z) const
+    {
+        FloatType dw = this->w - w;
+        FloatType dx = this->x - x;
+        FloatType dy = this->y - y;
+        FloatType dz = this->z - z;
+
+        return dw * dw + dx * dx + dy * dy + dz * dz <= SQUARE_EPSYLON;
+    }
+
+    template<typename FloatType> bool BasicQuaternionTemplate<FloatType>::isCloseTo(const BasicQuaternionTemplate<FloatType>& quaternion) const
+    {
+        FloatType dw = this->w - vector.w;
+        FloatType dx = this->x - vector.x;
+        FloatType dy = this->y - vector.y;
+        FloatType dz = this->z - vector.z;
+
+        return dw * dw + dx * dx + dy * dy + dz * dz <= SQUARE_EPSYLON;
+
     }
 
     template<typename FloatType> void BasicQuaternionTemplate<FloatType>::conjugate()
