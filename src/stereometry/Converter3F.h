@@ -18,7 +18,7 @@
 #define _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 
 #include "../Angle.h"
-#include "Matrix3x3F.h"
+#include "Matrix3x3.h"
 #include "Vector3.h"
 
 namespace geometry
@@ -35,7 +35,7 @@ namespace geometry
             inline Converter3F();
             virtual ~Converter3F();
 
-            inline void loadIdentity();
+            inline void setToIdentity();
 
             inline Vector3F convert(const Vector3F & vector) const;
         };
@@ -44,9 +44,9 @@ namespace geometry
         {
         }
 
-        void Converter3F::loadIdentity()
+        void Converter3F::setToIdentity()
         {
-            this->warp.loadIdentity();
+            this->warp.setToIdentity();
             this->shift.setToZero();
         }
 

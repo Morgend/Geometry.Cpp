@@ -18,7 +18,7 @@
 #define _GEOMETRY_FLOAT32_PLANIMETRY_TRANSITION_H_
 
 #include "../Angle.h"
-#include "Matrix2x2F.h"
+#include "Matrix2x2.h"
 #include "Vector2.h"
 
 namespace geometry
@@ -35,7 +35,7 @@ namespace geometry
             inline Converter2F();
             virtual ~Converter2F();
 
-            inline void loadIdentity();
+            inline void setToIdentity();
 
             void buildConvesion(const AngleF & turn, const Vector2F & shift);
 
@@ -46,9 +46,9 @@ namespace geometry
         {
         }
 
-        void Converter2F::loadIdentity()
+        void Converter2F::setToIdentity()
         {
-            this->warp.loadIdentity();
+            this->warp.setToIdentity();
             this->shift.setToZero();
         }
 

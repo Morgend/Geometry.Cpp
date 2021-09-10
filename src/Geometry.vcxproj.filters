@@ -18,9 +18,6 @@
     <ClCompile Include="planimetry\LineSegment2.cpp">
       <Filter>planimetry</Filter>
     </ClCompile>
-    <ClCompile Include="planimetry\Matrix2x2F.cpp">
-      <Filter>planimetry</Filter>
-    </ClCompile>
     <ClCompile Include="planimetry\Triangle2.cpp">
       <Filter>planimetry</Filter>
     </ClCompile>
@@ -45,6 +42,9 @@
     <ClCompile Include="Angle.cpp" />
     <ClCompile Include="constants.cpp" />
     <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="planimetry\Matrix2x2.cpp">
+      <Filter>planimetry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="planimetry\Converter2F.h">
@@ -59,9 +59,6 @@
     <ClInclude Include="planimetry\LineSegment2Template.h">
       <Filter>planimetry</Filter>
     </ClInclude>
-    <ClInclude Include="planimetry\Matrix2x2F.h">
-      <Filter>planimetry</Filter>
-    </ClInclude>
     <ClInclude Include="planimetry\Triangle2.h">
       <Filter>planimetry</Filter>
     </ClInclude>
@@ -72,9 +69,6 @@
       <Filter>stereometry</Filter>
     </ClInclude>
     <ClInclude Include="stereometry\Line3.h">
-      <Filter>stereometry</Filter>
-    </ClInclude>
-    <ClInclude Include="stereometry\Matrix3x3F.h">
       <Filter>stereometry</Filter>
     </ClInclude>
     <ClInclude Include="stereometry\Triangle3.h">
@@ -88,5 +82,11 @@
     <ClInclude Include="geometry.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="types.h" />
+    <ClInclude Include="stereometry\Matrix3x3F.h">
+      <Filter>stereometry</Filter>
+    </ClInclude>
+    <ClInclude Include="planimetry\Matrix2x2.h">
+      <Filter>planimetry</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
